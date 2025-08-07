@@ -1,112 +1,95 @@
 import React from "react";
 import icon from "../../assets/img/icon.png";
 
-
 const Header = () => {
   const headerStyle = {
     display: "flex",
     width: "100%",
     alignItems: "center",
-    backgroundColor: "#ffffffff",
+    backgroundColor: "#fff",
+    zIndex: 1000,
     flexWrap: "wrap",
     position: "fixed",
+    top: 0,
+    left: 0,
     boxSizing: "border-box",
-    flexDirection: "row",
     padding: "0 65px",
+    height: "80px", 
   };
-  const headercontainer = {
+
+  const container = {
     display: "flex",
     width: "100%",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "1rem 2rem",
     flexWrap: "wrap",
-    boxSizing: "border-box",
-    flex: "1 1 100%",
-    flexDirection: "row",
   };
 
-  const logoSectionStyle = {
+  const logoSection = {
     display: "flex",
     alignItems: "center",
     gap: "10px",
-    width: "25%",
-    flex: "1 1 25%",
-    flexDirection: "row",
   };
 
-  const logoImageStyle = {
+  const logoImage = {
     width: "40px",
     height: "25px",
   };
 
-  const logoNameStyle = {
+  const logoText = {
     fontSize: "1.5rem",
     fontWeight: "bold",
     color: "black",
   };
 
-  const navStyle = {
-    display: "flex",
-    gap: "20px",
-    flex: "1 1 30%",
-    flexDirection: "row",
-  };
-
-  const navLinksStyle = {
+  const nav = {
     display: "flex",
     gap: "60px",
     listStyle: "none",
-    padding: 0,
     margin: 0,
+    padding: 0,
   };
 
-  const navLinkStyle = {
+  const linkStyle = {
     textDecoration: "none",
     color: "#333",
-    fontWeight: "500",
-  };
-  const buttons = {
-    display: "flex", 
-    justifyContent: "flex-end", 
-    flex: "1 1 25%", 
+    fontWeight: 500,
   };
 
+  const buttonGroup = {
+    display: "flex",
+    gap: "10px",
+  };
 
-  const Login = {
+  const loginBtn = {
     padding: "0.6rem 1.2rem",
-    backgroundColor: "#ffffffff",
+    backgroundColor: "#fff",
     color: "green",
-    border: "none",
+    border: "1px solid green",
     borderRadius: "5px",
     cursor: "pointer",
     fontWeight: "bold",
-    marginLeft: "10px",
-  };
-  const Signup = {
-    padding: "0.6rem 1.2rem",
-    backgroundColor: "#21d421ff",
-    color: "white",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-    fontWeight: "bold",
-    marginLeft: "10px",
   };
 
+  const signupBtn = {
+    padding: "0.6rem 1.2rem",
+    backgroundColor: "#21d421",
+    color: "#fff",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
+    fontWeight: "bold",
+  };
 
   return (
-    <header style={headerStyle}>
-      <div style={headercontainer}>
-        {/* Logo and Name */}
-        <div style={logoSectionStyle}>
-          <img src={icon} alt="Logo" style={logoImageStyle} />
-          <div style={logoNameStyle}>Nexcent</div>
+    <header className="fixed-header" style={headerStyle}>
+      <div style={container}>
+        <div style={logoSection}>
+          <img src={icon} alt="Logo" style={logoImage} />
+          <div style={logoText}>Nexcent</div>
         </div>
-
-        {/* Navigation */}
-        <nav style={navStyle}>
-          <ul style={navLinksStyle}>
+        <nav>
+          <ul style={nav}>
             {[
               "Home",
               "Services",
@@ -114,20 +97,18 @@ const Header = () => {
               "Product",
               "Testimonial",
               "FAQ",
-            ].map((text) => (
-              <li key={text}>
-                <a href="#" style={navLinkStyle}>
-                  {text}
+            ].map((item) => (
+              <li key={item}>
+                <a href="#" style={linkStyle}>
+                  {item}
                 </a>
               </li>
             ))}
           </ul>
         </nav>
-
-        {/* Buttons */}
-        <div style={buttons}>
-          <button style={Login}>Login</button>
-          <button style={Signup}>Sign Up</button>
+        <div style={buttonGroup}>
+          <button style={loginBtn}>Login</button>
+          <button style={signupBtn}>Sign Up</button>
         </div>
       </div>
     </header>
