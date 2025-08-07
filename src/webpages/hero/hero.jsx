@@ -1,16 +1,16 @@
 import React, { useState } from "react";
+import heroImage from "../../assets/img/illustration.png"; 
 
 function Hero() {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Styles object
   const styles = {
     hero: {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      padding: "70px 5% 40px", 
-      backgroundColor: "#ffffff",
+      padding: "70px 5% 40px",
+      backgroundColor: "rgba(245, 247, 250, 1)",
       boxSizing: "border-box",
       minHeight: "calc(100vh - 80px)",
       width: "100%",
@@ -19,40 +19,42 @@ function Hero() {
     container: {
       display: "flex",
       width: "100%",
-      maxWidth: "1200px",
       justifyContent: "space-between",
       alignItems: "center",
-      flexWrap: "wrap",
+      flexDirection: "row",
       gap: "40px",
     },
     left: {
-      flex: "1 1 45%", 
-      minWidth: "300px", 
+      flex: "1 1 50%",
       display: "flex",
       flexDirection: "column",
-      gap: "24px", 
+      gap: "24px",
     },
     right: {
-      flex: "1 1 45%",
-      minWidth: "300px",
+      flex: "1 1 50%",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      minHeight: "300px", 
+      minHeight: "300px",
     },
     heading: {
-      fontSize: "clamp(32px, 5vw, 48px)", 
-      color: "#333461",
-      fontWeight: 800,
-      lineHeight: "1.2",
+      fontSize: "clamp(64px, 5vw, 48px)",
+      color: "#414141ff",
+      fontWeight: 600,
+      lineHeight: "76px",
       margin: 0,
+      fontFamily: "Inter, sans-serif",
+      letterSpacing: "0",
     },
+
     paragraph: {
-      fontSize: "clamp(16px, 2vw, 18px)", 
+      fontSize: "clamp(16px, 2vw, 18px)",
       color: "#5a5d77",
-      lineHeight: "1.6",
+      fontWeight: 400,
+      lineHeight: "24px",
       margin: 0,
-      maxWidth: "500px",
+      fontFamily: "Inter, sans-serif",
+      letterSpacing: "0",
     },
     button: {
       padding: "12px 24px",
@@ -66,16 +68,12 @@ function Hero() {
       width: "fit-content",
       transition: "background-color 0.3s ease",
     },
-    imagePlaceholder: {
+    image: {
       width: "100%",
-      height: "100%",
-      backgroundColor: "#f5f5f5",
+      maxWidth: "400px",
+      height: "auto",
       borderRadius: "12px",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      color: "#999",
-      fontSize: "18px",
+      objectFit: "contain",
     },
   };
 
@@ -85,7 +83,7 @@ function Hero() {
         <div style={styles.left}>
           <h1 style={styles.heading}>
             Lessons and insights{" "}
-            <span style={{ color: "#20ad96" }}>from 8 years</span>
+            <span style={{ color: "#44c55bff" }}>from 8 years</span>
           </h1>
           <p style={styles.paragraph}>
             Where to grow your business as a photographer: site or social media?
@@ -99,7 +97,11 @@ function Hero() {
           </button>
         </div>
         <div style={styles.right}>
-          <div style={styles.imagePlaceholder}>Illustration/Image</div>
+          <img
+            src={heroImage}
+            alt="Business growth illustration"
+            style={styles.image}
+          />
         </div>
       </div>
     </section>
