@@ -58,7 +58,7 @@ function Hero() {
     },
     button: {
       padding: "12px 24px",
-      backgroundColor: "#1a9984",
+      backgroundColor: "#66db2fff",
       color: "white",
       border: "none",
       borderRadius: "8px",

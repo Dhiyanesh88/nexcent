@@ -4,8 +4,10 @@ import viteLogo from '/vite.svg'
 import React from "react";
 import Header from "./webpages/header/header";
 import Hero from "./webpages/hero/hero";
-import "./App.css";
 import Client from "./webpages/clients/client";
+import Community from "./webpages/community/community";
+import "./App.css";
+
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
       <main>
         <Hero />
         <Client />
+        <Community />
       </main>
     </>
   );

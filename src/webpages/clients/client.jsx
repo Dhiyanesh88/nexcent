@@ -8,8 +8,7 @@ import Logo5 from "../../assets/img/Logo4.png";
 import Logo6 from "../../assets/img/Logo5.png"; 
 import Logo7 from "../../assets/img/Logo6.png"; 
 
-function Hero() {
-  const [isHovered, setIsHovered] = useState(false);
+function Client() {
 
   const styles = {
     client: {
@@ -94,4 +93,4 @@ function Hero() {
   );
 }
 
-export default Hero;
+export default Client;
