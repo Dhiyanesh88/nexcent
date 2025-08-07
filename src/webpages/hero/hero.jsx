@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import heroImage from "../../assets/img/illustration.png"; 
 
 function Hero() {
-  const [isHovered, setIsHovered] = useState(false);
 
   const styles = {
     hero: {
@@ -10,7 +9,7 @@ function Hero() {
       justifyContent: "center",
       alignItems: "center",
       padding: "70px 5% 40px",
-      backgroundColor: "rgba(245, 247, 250, 1)",
+      backgroundColor: "#f4f4f4ff",
       boxSizing: "border-box",
       minHeight: "calc(100vh - 80px)",
       width: "100%",
@@ -32,6 +31,7 @@ function Hero() {
     },
     right: {
       flex: "1 1 50%",
+      minWidth: "300px",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
@@ -58,7 +58,7 @@ function Hero() {
     },
     button: {
       padding: "12px 24px",
-      backgroundColor: isHovered ? "#1a9984" : "#20ad96",
+      backgroundColor: "#1a9984",
       color: "white",
       border: "none",
       borderRadius: "8px",
@@ -88,11 +88,7 @@ function Hero() {
           <p style={styles.paragraph}>
             Where to grow your business as a photographer: site or social media?
           </p>
-          <button
-            style={styles.button}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
+          <button style={styles.button}>
             Register
           </button>
         </div>

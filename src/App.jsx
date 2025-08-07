@@ -5,6 +5,7 @@ import React from "react";
 import Header from "./webpages/header/header";
 import Hero from "./webpages/hero/hero";
 import "./App.css";
+import Client from "./webpages/clients/client";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <Client />
       </main>
     </>
   );
