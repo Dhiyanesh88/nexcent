@@ -6,8 +6,7 @@ import Logo4 from "../../assets/img/Logo3.png";
 import Logo5 from "../../assets/img/Logo4.png";
 import Logo6 from "../../assets/img/Logo5.png"; 
 
-function Unlock() {
-
+function Customer() {
   const styles = {
     hero: {
       display: "flex",
@@ -55,6 +54,7 @@ function Unlock() {
     button: {
       padding: "12px 24px",
       color: "Green",
+      backgroundColor: "white",
       border: "none",
       borderRadius: "8px",
       fontSize: "16px",
@@ -69,6 +69,27 @@ function Unlock() {
       height: "auto",
       borderRadius: "12px",
       objectFit: "contain",
+    },
+    logoimage: {
+      width: "48px",
+      height: "48px",
+    },
+    links: {
+      flexDirection: "row",
+      display: "flex",
+      justifyContent: "",
+      alignItems: "center",
+      gap:"20px",
+    },
+    botombox: {
+      flexDirection: "column",
+      display: "flex",
+    },
+    botomboxhead: {
+      color: "Green",
+    },
+    botomboxpara: {
+      color: "Green",
     },
   };
 
@@ -91,21 +112,25 @@ function Unlock() {
             Quisque vulputate odio neque, eget efficitur libero condimentum id.
             Curabitur id nibh id sem dignissim finibus ac sit amet magna.
           </p>
-          <div>
-            <h5>Tim Smith</h5>
-            <p>British Dragon Boat Racing Association</p>
+          <div style={styles.botombox}>
+            <h5 style={styles.botomboxhead}>Tim Smith</h5>
+            <p style={styles.botomboxpara}>
+              British Dragon Boat Racing Association
+            </p>
           </div>
-          <img src={Logo1} alt="L1" style={styles.image} />
-          <img src={Logo2} alt="L2" style={styles.image} />
-          <img src={Logo3} alt="l3" style={styles.image} />
-          <img src={Logo4} alt="L4" style={styles.image} />
-          <img src={Logo5} alt="L5" style={styles.image} />
-          <img src={Logo6} alt="L6" style={styles.image} />
-          <button style={styles.button}>Learn More</button>
+          <div style={styles.links}>
+            <img src={Logo1} alt="L1" style={styles.logoimage} />
+            <img src={Logo2} alt="L2" style={styles.logoimage} />
+            <img src={Logo3} alt="l3" style={styles.logoimage} />
+            <img src={Logo4} alt="L4" style={styles.logoimage} />
+            <img src={Logo5} alt="L5" style={styles.logoimage} />
+            <img src={Logo6} alt="L6" style={styles.logoimage} />
+            <button style={styles.button}>Meet all customers</button>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-export default Unlock;
+export default Customer;

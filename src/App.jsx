@@ -9,6 +9,7 @@ import Community from "./webpages/community/community";
 import Unlock from "./webpages/Unlock/Unlock";
 import Achieve from "./webpages/Achievements/Achieve";
 import Cal from "./webpages/Calender/Cal";
+import Customer from "./webpages/Customers/Customers";
 import "./App.css";
 
 
@@ -25,6 +26,7 @@ function App() {
         <Unlock />
         <Achieve />
         <Cal />
+        <Customer />
       </main>
     </>
   );
