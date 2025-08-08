@@ -23,7 +23,6 @@ function Achieve() {
       justifyContent: "space-between",
       alignItems: "center",
       flexDirection: "row",
-      gap: "40px",
     },
     left: {
       flex: "1 1 50%",
@@ -60,6 +59,9 @@ function Achieve() {
     containerbox: {
       width: "40%",
       flexDirection: "row",
+    },
+    containerboxtext: {
+      flexDirection: "column",
     },
     boxheading: {
       fontSize: "clamp(36px, 5vw, 30px)",
@@ -99,23 +101,31 @@ function Achieve() {
         <div style={styles.right}>
           <div style={styles.containerbox}>
             <img src={Logo1} alt="Members" style={styles.image} />
-            <h1 style={styles.boxheading}>2,245,341</h1>
-            <p style={styles.boxparagraph}>Members</p>
+            <div style={styles.containerboxtext}>
+                <h1 style={styles.boxheading}>2,245,341</h1>
+                <p style={styles.boxparagraph}>Members</p>
+            </div> 
           </div>
           <div style={styles.containerbox}>
             <img src={Logo2} alt="Members" style={styles.image} />
-            <h1 style={styles.boxheading}>46,328</h1>
-            <p style={styles.boxparagraph}>Clubs</p>
+            <div style={styles.containerboxtext}>
+                <h1 style={styles.boxheading}>46,328</h1>
+                <p style={styles.boxparagraph}>Clubs</p>
+            </div>
           </div>
           <div style={styles.containerbox}>
             <img src={Logo3} alt="Members" style={styles.image} />
-            <h1 style={styles.boxheading}>828,867</h1>
-            <p style={styles.boxparagraph}>Event Bookings</p>
+            <div style={styles.containerboxtext}>
+                <h1 style={styles.boxheading}>828,867</h1>
+                <p style={styles.boxparagraph}>Event Bookings</p>
+            </div>
           </div>
           <div style={styles.containerbox}>
             <img src={Logo4} alt="Members" style={styles.image} />
-            <h1 style={styles.boxheading}>1,926,436</h1>
-            <p style={styles.boxparagraph}>Payments</p>
+            <div style={styles.containerboxtext}>
+                <h1 style={styles.boxheading}>1,926,436</h1>
+                <p style={styles.boxparagraph}>Payments</p>
+            </div>
           </div>
         </div>
       </div>
