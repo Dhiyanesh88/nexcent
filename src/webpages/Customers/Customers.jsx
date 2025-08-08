@@ -51,7 +51,7 @@ function Customer() {
     },
     button: {
       padding: "12px 24px",
-      color: "Green",
+      color: "rgba(76, 175, 79, 1)",
       backgroundColor: "rgba(245, 247, 250, 1)",
       border: "none",
       borderRadius: "8px",
@@ -131,7 +131,7 @@ function Customer() {
             <img src={Logo4} alt="L4" style={styles.logoimage} />
             <img src={Logo5} alt="L5" style={styles.logoimage} />
             <img src={Logo6} alt="L6" style={styles.logoimage} />
-            <button style={styles.button}>Meet all customers</button>
+            <a style={styles.button}>Meet all customers →</a>
           </div>
         </div>
       </div>

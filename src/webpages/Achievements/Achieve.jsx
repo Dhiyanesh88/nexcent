@@ -92,7 +92,9 @@ function Achieve() {
         <div style={styles.left}>
           <h1 style={styles.heading}>
             Helping a local{" "}
-            <span style={{ color: "#44c55bff" }}>business reinvent itself</span>
+            <span style={{ color: "rgba(76, 175, 79, 1)" }}>
+              business reinvent itself
+            </span>
           </h1>
           <p style={styles.paragraph}>
             We reached here with our hard work and dedication
@@ -102,29 +104,29 @@ function Achieve() {
           <div style={styles.containerbox}>
             <img src={Logo1} alt="Members" style={styles.image} />
             <div style={styles.containerboxtext}>
-                <h1 style={styles.boxheading}>2,245,341</h1>
-                <p style={styles.boxparagraph}>Members</p>
-            </div> 
+              <h1 style={styles.boxheading}>2,245,341</h1>
+              <p style={styles.boxparagraph}>Members</p>
+            </div>
           </div>
           <div style={styles.containerbox}>
             <img src={Logo2} alt="Members" style={styles.image} />
             <div style={styles.containerboxtext}>
-                <h1 style={styles.boxheading}>46,328</h1>
-                <p style={styles.boxparagraph}>Clubs</p>
+              <h1 style={styles.boxheading}>46,328</h1>
+              <p style={styles.boxparagraph}>Clubs</p>
             </div>
           </div>
           <div style={styles.containerbox}>
             <img src={Logo3} alt="Members" style={styles.image} />
             <div style={styles.containerboxtext}>
-                <h1 style={styles.boxheading}>828,867</h1>
-                <p style={styles.boxparagraph}>Event Bookings</p>
+              <h1 style={styles.boxheading}>828,867</h1>
+              <p style={styles.boxparagraph}>Event Bookings</p>
             </div>
           </div>
           <div style={styles.containerbox}>
             <img src={Logo4} alt="Members" style={styles.image} />
             <div style={styles.containerboxtext}>
-                <h1 style={styles.boxheading}>1,926,436</h1>
-                <p style={styles.boxparagraph}>Payments</p>
+              <h1 style={styles.boxheading}>1,926,436</h1>
+              <p style={styles.boxparagraph}>Payments</p>
             </div>
           </div>
         </div>

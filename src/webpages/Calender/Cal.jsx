@@ -57,7 +57,7 @@ function Cal() {
     },
     button: {
       padding: "12px 24px",
-      backgroundColor: "#66db2fff",
+      backgroundColor: "rgba(76, 175, 79, 1)",
       color: "white",
       border: "none",
       borderRadius: "8px",

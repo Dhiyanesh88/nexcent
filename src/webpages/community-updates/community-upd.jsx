@@ -131,7 +131,7 @@ function Communityupd() {
               <p style={styles.boxparagraph}>
                 Creating Streamlined Safeguarding Processes with OneRen
               </p>
-              <a style={styles.button}>Read More </a>
+              <a style={styles.button}>Read More →</a>
             </div>
           </div>
 
@@ -142,7 +142,7 @@ function Communityupd() {
                 What are your safeguarding responsibilities and how can you
                 manage them?
               </p>
-              <a style={styles.button}>Read More</a>
+              <a style={styles.button}>Read More →</a>
             </div>
           </div>
 
@@ -152,7 +152,7 @@ function Communityupd() {
               <p style={styles.boxparagraph}>
                 Revamping the Membership Model with Triathlon Australia
               </p>
-              <a style={styles.button}>Read More</a>
+              <a style={styles.button}>Read More →</a>
             </div>
           </div>
         </div>

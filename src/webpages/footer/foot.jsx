@@ -15,7 +15,7 @@ export default function FooterSection() {
       marginBottom: "20px",
     },
     button: {
-      backgroundColor: "#22c55e",
+      backgroundColor: "rgba(76, 175, 79, 1)",
       color: "#ffffff",
       border: "none",
       padding: "10px 20px",
@@ -80,7 +80,7 @@ export default function FooterSection() {
     logo: {
       flexDirection: "row",
       display: "flex",
-      gap: "10px"
+      gap: "10px",
     },
   };
 

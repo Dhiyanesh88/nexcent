@@ -63,8 +63,7 @@ const Header = () => {
   const loginBtn = {
     padding: "0.6rem 1.2rem",
     backgroundColor: "#fff",
-    color: "green",
-    border: "1px solid green",
+    color: "rgba(76, 175, 79, 1)",
     borderRadius: "5px",
     cursor: "pointer",
     fontWeight: "bold",
@@ -72,7 +71,7 @@ const Header = () => {
 
   const signupBtn = {
     padding: "0.6rem 1.2rem",
-    backgroundColor: "#21d421",
+    backgroundColor: "rgba(76, 175, 79, 1)",
     color: "#fff",
     border: "none",
     borderRadius: "5px",
