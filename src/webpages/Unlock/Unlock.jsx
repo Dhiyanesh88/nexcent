@@ -1,0 +1,108 @@
+import Unlockimage from "../../assets/img/Unlock.jpg"; 
+
+function Hero() {
+
+  const styles = {
+    hero: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      padding: "60px 5% 40px",
+      backgroundColor: "#ffffffff",
+      boxSizing: "border-box",
+      minHeight: "calc(70vh - 80px)",
+      width: "100%",
+      overflow: "hidden",
+    },
+    container: {
+      display: "flex",
+      width: "100%",
+      justifyContent: "space-between",
+      alignItems: "center",
+      flexDirection: "row",
+      gap: "40px",
+    },
+    right: {
+      flex: "1 1 50%",
+      display: "flex",
+      flexDirection: "column",
+      gap: "24px",
+    },
+    left: {
+      flex: "1 1 50%",
+      minWidth: "300px",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      minHeight: "300px",
+    },
+    heading: {
+      fontSize: "clamp(64px, 5vw, 48px)",
+      color: "#414141ff",
+      fontWeight: 600,
+      lineHeight: "76px",
+      margin: 0,
+      fontFamily: "Inter, sans-serif",
+      letterSpacing: "0",
+    },
+
+    paragraph: {
+      fontSize: "clamp(16px, 2vw, 18px)",
+      color: "#5a5d77",
+      fontWeight: 400,
+      lineHeight: "24px",
+      margin: 0,
+      fontFamily: "Inter, sans-serif",
+      letterSpacing: "0",
+    },
+    button: {
+      padding: "12px 24px",
+      backgroundColor: "#66db2fff",
+      color: "white",
+      border: "none",
+      borderRadius: "8px",
+      fontSize: "16px",
+      fontWeight: "600",
+      cursor: "pointer",
+      width: "fit-content",
+      transition: "background-color 0.3s ease",
+    },
+    image: {
+      width: "100%",
+      maxWidth: "400px",
+      height: "auto",
+      borderRadius: "12px",
+      objectFit: "contain",
+    },
+  };
+
+  return (
+    <section style={styles.hero}>
+      <div style={styles.container}>
+        <div style={styles.left}>
+          <img
+            src={Unlockimage}
+            alt="Unlock"
+            style={styles.image}
+          />
+        </div>
+        <div style={styles.right}>
+          <h1 style={styles.heading}>
+            The unseen of spending three years at Pixelgrade
+          </h1>
+          <p style={styles.paragraph}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit
+            amet justo ipsum. Sed accumsan quam vitae est varius fringilla.
+            Pellentesque placerat vestibulum lorem sed porta. Nullam mattis
+            tristique iaculis. Nullam pulvinar sit amet risus pretium auctor.
+            Etiam quis massa pulvinar, aliquam quam vitae, tempus sem. Donec
+            elementum pulvinar odio.
+          </p>
+          <button style={styles.button}>Learnmore</button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default Hero;
