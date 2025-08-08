@@ -9,7 +9,6 @@ const Header = () => {
     backgroundColor: "#fff",
     zIndex: 1000,
     flexWrap: "wrap",
-    position: "fixed",
     top: 0,
     left: 0,
     boxSizing: "border-box",
@@ -88,7 +87,8 @@ const Header = () => {
           <img src={icon} alt="Logo" style={logoImage} />
           <div style={logoText}>Nexcent</div>
         </div>
-        <nav>
+        <div>
+          <nav>
           <ul style={nav}>
             {[
               "Home",
@@ -105,7 +105,8 @@ const Header = () => {
               </li>
             ))}
           </ul>
-        </nav>
+          </nav>
+        </div> 
         <div style={buttonGroup}>
           <button style={loginBtn}>Login</button>
           <button style={signupBtn}>Sign Up</button>

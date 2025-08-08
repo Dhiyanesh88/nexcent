@@ -33,7 +33,7 @@ function Community() {
     },
     botom: {
       display: "flex",
-      gap: "140px",
+      gap: "50px",
       flexDirection: "row",
       width: "100%",
       alignItems: "center",
