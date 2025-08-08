@@ -8,6 +8,7 @@ import Client from "./webpages/clients/client";
 import Community from "./webpages/community/community";
 import Unlock from "./webpages/Unlock/Unlock";
 import Achieve from "./webpages/Achievements/Achieve";
+import Cal from "./webpages/Calender/Cal";
 import "./App.css";
 
 
@@ -23,6 +24,7 @@ function App() {
       <main>
         <Unlock />
         <Achieve />
+        <Cal />
       </main>
     </>
   );

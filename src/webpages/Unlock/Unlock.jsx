@@ -1,6 +1,6 @@
 import Unlockimage from "../../assets/img/Unlock.jpg"; 
 
-function Hero() {
+function Unlock() {
 
   const styles = {
     hero: {
@@ -37,17 +37,17 @@ function Hero() {
       minHeight: "300px",
     },
     heading: {
-      fontSize: "clamp(64px, 5vw, 48px)",
+      fontSize: "clamp(36px, 5vw, 30px)",
       color: "#414141ff",
       fontWeight: 600,
-      lineHeight: "76px",
+      lineHeight: "44px",
       margin: 0,
       fontFamily: "Inter, sans-serif",
       letterSpacing: "0",
     },
 
     paragraph: {
-      fontSize: "clamp(16px, 2vw, 18px)",
+      fontSize: "clamp(14px, 2vw, 10px)",
       color: "#5a5d77",
       fontWeight: 400,
       lineHeight: "24px",
@@ -98,11 +98,11 @@ function Hero() {
             Etiam quis massa pulvinar, aliquam quam vitae, tempus sem. Donec
             elementum pulvinar odio.
           </p>
-          <button style={styles.button}>Learnmore</button>
+          <button style={styles.button}>Learn More</button>
         </div>
       </div>
     </section>
   );
 }
 
-export default Hero;
+export default Unlock;
