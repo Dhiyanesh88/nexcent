@@ -66,37 +66,49 @@ function Communityupd() {
       width: "50%",
     },
     image: {
-      width: "368",
-      height: "286",
-      borderradius: "8px",
+      width: "368px",
+      height: "286px",
+      borderRadius: "20px",
     },
     containerbox: {
       width: "30%",
       alignItems: "center",
       textAlign: "center",
+      position: "relative",
+    },
+    floatbox: {
+      width: "80%",
+      alignItems: "center",
+      textAlign: "center",
+      backgroundColor: "rgba(245, 247, 250, 1)",
+      marginTop: "-90px",
+      marginLeft: "40px",
+      position: "absolute",
+      borderRadius: "8px",
+      padding: "12px 24px",
+      boxShadow: "2px 2px 2px rgba(171, 190, 209, 0.4)",
     },
     boxparagraph: {
-      fontSize: "clamp(16px, 2vw, 18px)",
+      fontSize: "clamp(20px, 2vw, 18px)",
       color: "rgba(113, 113, 113, 1)",
-      fontWeight: 400,
-      lineHeight: "24px",
+      fontWeight: 600,
+      lineHeight: "28px",
       margin: 0,
       fontFamily: "Inter, sans-serif",
       letterSpacing: "0",
       alignItems: "center",
       textAlign: "center",
+      marginBottom: "15px",
     },
     button: {
       padding: "12px 24px",
-      backgroundColor: "white",
-      color: "green",
+      color: "rgba(76, 175, 79, 1)",
       border: "none",
       borderRadius: "8px",
       fontSize: "16px",
       fontWeight: "600",
       cursor: "pointer",
       width: "fit-content",
-      transition: "background-color 0.3s ease",
     },
   };
 
@@ -115,31 +127,32 @@ function Communityupd() {
         <div style={styles.botom}>
           <div style={styles.containerbox}>
             <img src={IMG1} alt="L1" style={styles.image} />
-            <div>
+            <div style={styles.floatbox}>
               <p style={styles.boxparagraph}>
                 Creating Streamlined Safeguarding Processes with OneRen
               </p>
-              <button style={styles.button}>Read More</button>
+              <a style={styles.button}>Read More </a>
             </div>
           </div>
 
           <div style={styles.containerbox}>
             <img src={IMG2} alt="L2" style={styles.image} />
-            <div>
+            <div style={styles.floatbox}>
               <p style={styles.boxparagraph}>
-                Creating Streamlined Safeguarding Processes with OneRen
+                What are your safeguarding responsibilities and how can you
+                manage them?
               </p>
-              <button style={styles.button}>Read More</button>
+              <a style={styles.button}>Read More</a>
             </div>
           </div>
 
           <div style={styles.containerbox}>
             <img src={IMG3} alt="l3" style={styles.image} />
-            <div>
+            <div style={styles.floatbox}>
               <p style={styles.boxparagraph}>
-                Creating Streamlined Safeguarding Processes with OneRen
+                Revamping the Membership Model with Triathlon Australia
               </p>
-              <button style={styles.button}>Read More</button>
+              <a style={styles.button}>Read More</a>
             </div>
           </div>
         </div>

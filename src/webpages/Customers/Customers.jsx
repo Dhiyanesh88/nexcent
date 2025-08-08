@@ -8,7 +8,7 @@ import Logo6 from "../../assets/img/Logo5.png";
 
 function Customer() {
   const styles = {
-    hero: {
+    Customer: {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
@@ -25,21 +25,18 @@ function Customer() {
       justifyContent: "space-between",
       alignItems: "center",
       flexDirection: "row",
-      gap: "40px",
+      gap: "45px",
     },
     right: {
-      flex: "1 1 50%",
+      flex: "1 1 60%",
       display: "flex",
       flexDirection: "column",
       gap: "24px",
     },
     left: {
-      flex: "1 1 50%",
-      minWidth: "300px",
+      flex: "1 1 40%",
       display: "flex",
       justifyContent: "center",
-      alignItems: "center",
-      minHeight: "300px",
     },
 
     paragraph: {
@@ -50,6 +47,7 @@ function Customer() {
       margin: 0,
       fontFamily: "Inter, sans-serif",
       letterSpacing: "0",
+      width: "85%",
     },
     button: {
       padding: "12px 24px",
@@ -86,15 +84,23 @@ function Customer() {
       display: "flex",
     },
     botomboxhead: {
-      color: "Green",
+      color: "rgba(76, 175, 79, 1)",
+      fontSize: "clamp(20px, 2vw, 10px)",
+      fontWeight: 600,
+      lineHeight: "28px",
+      letterSpacing: "0",
     },
     botomboxpara: {
-      color: "Green",
+      color: "rgba(137, 147, 158, 1)",
+      fontSize: "clamp(16px, 2vw, 10px)",
+      fontWeight: 400,
+      lineHeight: "24px",
+      letterSpacing: "0",
     },
   };
 
   return (
-    <section style={styles.hero}>
+    <section style={styles.Customer}>
       <div style={styles.container}>
         <div style={styles.left}>
           <img src={Unlockimage} alt="Unlock" style={styles.image} />
