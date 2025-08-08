@@ -29,7 +29,7 @@ function Achieve() {
       width: "100%",
       justifyContent: "space-between",
       alignItems: "center",
-      flexDirection: "row",
+      flexDirection: isMobile ? "column" : "row",
     },
     left: {
       flex: "1 1 50%",
@@ -64,14 +64,17 @@ function Achieve() {
       fontFamily: "Inter, sans-serif",
     },
     containerbox: {
-      width: "40%",
+      width: isMobile ? "100%" : "40%",
       flexDirection: "row",
       display: "flex",
       gap: "15px",
     },
     containerboxtext: {
       flexDirection: "column",
+      textAlign: isMobile ? "center" : "left",
+      marginLeft: isMobile ? "0" : "10px",
     },
+
     boxheading: {
       fontSize: "clamp(36px, 5vw, 30px)",
       color: "rgba(77,77,77,1)",

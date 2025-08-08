@@ -32,11 +32,12 @@ function Customer() {
       width: "100%",
       justifyContent: "space-between",
       alignItems: "center",
-      flexDirection: "row",
+      flexDirection: isMobile ? "column" : "row",
       gap: "45px",
     },
     right: {
       flex: "1 1 60%",
+      width: "100%",
       display: "flex",
       flexDirection: "column",
       gap: "24px",
@@ -81,15 +82,17 @@ function Customer() {
       height: "48px",
     },
     links: {
-      flexDirection: "row",
+      flexDirection: isMobile? "row": "row",
       display: "flex",
       justifyContent: "",
       alignItems: "center",
+      width: "100%",
       gap: "20px",
     },
     botombox: {
       flexDirection: "column",
       display: "flex",
+      width: "100%",
     },
     botomboxhead: {
       color: "rgba(76, 175, 79, 1)",

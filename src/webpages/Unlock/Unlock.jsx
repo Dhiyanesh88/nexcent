@@ -36,14 +36,13 @@ function Unlock() {
       gap: "24px",
       // paddingRight: "100px",
       alignItems: isMobile ? "center" : "flex-start",
-      textAlign: isMobile ? "center" : "flex-start",
-      
+      textAlign:  "flex-start" ,
     },
     left: {
       flex: "1 1 40%",
       minWidth: "300px",
       display: "flex",
-      justifyContent: "flex-end",
+      justifyContent: "center",
       alignItems: "center",
       minHeight: "300px",
     },
