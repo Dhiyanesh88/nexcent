@@ -11,6 +11,7 @@ import Achieve from "./webpages/Achievements/Achieve";
 import Cal from "./webpages/Calender/Cal";
 import Customer from "./webpages/Customers/Customers";
 import Communityupd from "./webpages/community-updates/community-upd";
+import Foot from "./webpages/footer/foot";
 import "./App.css";
 
 
@@ -30,6 +31,7 @@ function App() {
         <Customer />
         <Communityupd />
       </main>
+      <Foot />
     </>
   );
 }
