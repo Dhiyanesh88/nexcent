@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Logo1 from "../../assets/img/Logo.png"; 
-import Logo2 from "../../assets/img/Logo1.png"; 
-import Logo3 from "../../assets/img/Logo2.png";  
+import Logo1 from "../../assets/img/C-icon1.png"; 
+import Logo2 from "../../assets/img/C-icon2.png"; 
+import Logo3 from "../../assets/img/C-icon3.png"; 
 
 function Community() {
 
@@ -80,7 +80,8 @@ function Community() {
       letterSpacing: "0",
       alignItems: "center",
       textAlign: "center",
-      padding:"20px"
+      padding:"20px",
+    
     },
     boxparagraph: {
       fontSize: "clamp(16px, 2vw, 18px)",

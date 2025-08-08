@@ -1,7 +1,8 @@
 import React from "react";
-import Logo1 from "../../assets/img/logo1.png";
-import Logo2 from "../../assets/img/logo2.png";
-import Logo3 from "../../assets/img/logo3.png";
+import Logo1 from "../../assets/img/A-Icon1.png";
+import Logo2 from "../../assets/img/A-Icon2.png";
+import Logo3 from "../../assets/img/A-Icon3.png";
+import Logo4 from "../../assets/img/A-Icon4.png";
 
 function Achieve() {
   const styles = {
@@ -10,7 +11,7 @@ function Achieve() {
       justifyContent: "center",
       alignItems: "center",
       padding: "70px 5% 40px",
-      backgroundColor: "#f4f4f4ff",
+      backgroundColor: "rgba(245, 247, 250, 1)",
       boxSizing: "border-box",
       minHeight: "calc(60vh - 80px)",
       width: "100%",
@@ -102,17 +103,17 @@ function Achieve() {
             <p style={styles.boxparagraph}>Members</p>
           </div>
           <div style={styles.containerbox}>
-            <img src={Logo1} alt="Members" style={styles.image} />
+            <img src={Logo2} alt="Members" style={styles.image} />
             <h1 style={styles.boxheading}>46,328</h1>
             <p style={styles.boxparagraph}>Clubs</p>
           </div>
           <div style={styles.containerbox}>
-            <img src={Logo1} alt="Members" style={styles.image} />
+            <img src={Logo3} alt="Members" style={styles.image} />
             <h1 style={styles.boxheading}>828,867</h1>
             <p style={styles.boxparagraph}>Event Bookings</p>
           </div>
           <div style={styles.containerbox}>
-            <img src={Logo1} alt="Members" style={styles.image} />
+            <img src={Logo4} alt="Members" style={styles.image} />
             <h1 style={styles.boxheading}>1,926,436</h1>
             <p style={styles.boxparagraph}>Payments</p>
           </div>

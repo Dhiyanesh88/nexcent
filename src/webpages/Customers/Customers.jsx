@@ -1,4 +1,4 @@
-import Unlockimage from "../../assets/img/Unlock.jpg"; 
+import Unlockimage from "../../assets/img/T.jpg"; 
 import Logo1 from "../../assets/img/Logo.png";
 import Logo2 from "../../assets/img/Logo1.png";
 import Logo3 from "../../assets/img/Logo2.png";
@@ -13,7 +13,7 @@ function Customer() {
       justifyContent: "center",
       alignItems: "center",
       padding: "60px 5% 40px",
-      backgroundColor: "#ffffffff",
+      backgroundColor: "rgba(245, 247, 250, 1)",
       boxSizing: "border-box",
       minHeight: "calc(70vh - 80px)",
       width: "100%",
@@ -54,7 +54,7 @@ function Customer() {
     button: {
       padding: "12px 24px",
       color: "Green",
-      backgroundColor: "white",
+      backgroundColor: "rgba(245, 247, 250, 1)",
       border: "none",
       borderRadius: "8px",
       fontSize: "16px",
@@ -79,7 +79,7 @@ function Customer() {
       display: "flex",
       justifyContent: "",
       alignItems: "center",
-      gap:"20px",
+      gap: "20px",
     },
     botombox: {
       flexDirection: "column",

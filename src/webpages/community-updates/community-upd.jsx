@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import Logo1 from "../../assets/img/Logo.png"; 
-import Logo2 from "../../assets/img/Logo1.png"; 
-import Logo3 from "../../assets/img/Logo2.png";  
+import IMG1 from "../../assets/img/UPD1.jpg"; 
+import IMG2 from "../../assets/img/UPD2.jpg"; 
+import IMG3 from "../../assets/img/UPD3.jpg"; 
+
 
 function Communityupd() {
 
@@ -65,8 +66,9 @@ function Communityupd() {
       width: "50%",
     },
     image: {
-      width: "48px",
-      height: "48px",
+      width: "368",
+      height: "286",
+      borderradius: "8px",
     },
     containerbox: {
       width: "30%",
@@ -112,7 +114,7 @@ function Communityupd() {
         </div>
         <div style={styles.botom}>
           <div style={styles.containerbox}>
-            <img src={Logo1} alt="L1" style={styles.image} />
+            <img src={IMG1} alt="L1" style={styles.image} />
             <div>
               <p style={styles.boxparagraph}>
                 Creating Streamlined Safeguarding Processes with OneRen
@@ -122,7 +124,7 @@ function Communityupd() {
           </div>
 
           <div style={styles.containerbox}>
-            <img src={Logo2} alt="L2" style={styles.image} />
+            <img src={IMG2} alt="L2" style={styles.image} />
             <div>
               <p style={styles.boxparagraph}>
                 Creating Streamlined Safeguarding Processes with OneRen
@@ -132,7 +134,7 @@ function Communityupd() {
           </div>
 
           <div style={styles.containerbox}>
-            <img src={Logo3} alt="l3" style={styles.image} />
+            <img src={IMG3} alt="l3" style={styles.image} />
             <div>
               <p style={styles.boxparagraph}>
                 Creating Streamlined Safeguarding Processes with OneRen
