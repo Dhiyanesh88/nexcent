@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Logo1 from "../../assets/img/A-Icon1.png";
 import Logo2 from "../../assets/img/A-Icon2.png";
 import Logo3 from "../../assets/img/A-Icon3.png";
 import Logo4 from "../../assets/img/A-Icon4.png";
 
 function Achieve() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+  
+    useEffect(() => {
+      const handleResize = () => setIsMobile(window.innerWidth < 769);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
   const styles = {
     Achieve: {
       display: "flex",
@@ -60,7 +67,7 @@ function Achieve() {
       width: "40%",
       flexDirection: "row",
       display: "flex",
-      gap: "15px"
+      gap: "15px",
     },
     containerboxtext: {
       flexDirection: "column",
@@ -85,7 +92,7 @@ function Achieve() {
     image: {
       width: "50px",
       height: "58px",
-      paddingTop:"10px"
+      paddingTop: "10px",
     },
   };
 

@@ -1,7 +1,14 @@
-import Unlockimage from "../../assets/img/Calender.png"; 
+import React, { useState, useEffect } from "react";
+import Unlockimage from "../../assets/img/Calender.png";
 
 function Cal() {
-
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+  
+    useEffect(() => {
+      const handleResize = () => setIsMobile(window.innerWidth < 769);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
   const styles = {
     hero: {
       display: "flex",

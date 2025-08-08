@@ -1,11 +1,16 @@
-import React, { useState } from "react";
-import IMG1 from "../../assets/img/UPD1.jpg"; 
-import IMG2 from "../../assets/img/UPD2.jpg"; 
-import IMG3 from "../../assets/img/UPD3.jpg"; 
-
+import React, { useState, useEffect } from "react";
+import IMG1 from "../../assets/img/UPD1.jpg";
+import IMG2 from "../../assets/img/UPD2.jpg";
+import IMG3 from "../../assets/img/UPD3.jpg";
 
 function Communityupd() {
-
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+  
+    useEffect(() => {
+      const handleResize = () => setIsMobile(window.innerWidth < 769);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
   const styles = {
     Community: {
       display: "flex",

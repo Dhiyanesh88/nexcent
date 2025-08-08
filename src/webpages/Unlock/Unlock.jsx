@@ -1,13 +1,21 @@
-import Unlockimage from "../../assets/img/Unlock.jpg"; 
+import React, { useState, useEffect } from "react";
+import Unlockimage from "../../assets/img/Unlock.jpg";
 
 function Unlock() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+  
+    useEffect(() => {
+      const handleResize = () => setIsMobile(window.innerWidth < 769);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
   const styles = {
-    hero: {
+    Unlock: {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      padding: "60px 5% 40px",
+      padding: "clamp(0px,5vw,40px) clamp(20px,5vw,40px) clamp(0px,5vw,40px)",
       backgroundColor: "#ffffffff",
       boxSizing: "border-box",
       minHeight: "calc(70vh - 80px)",
@@ -18,15 +26,18 @@ function Unlock() {
       display: "flex",
       width: "100%",
       alignItems: "center",
-      flexDirection: "row",
-      gap: "30px",
+      gap: "clamp(0px,3vw,30px)",
+      flexDirection: isMobile ? "column" : "row",
     },
     right: {
       flex: "1 1 60%",
       display: "flex",
       flexDirection: "column",
       gap: "24px",
-      paddingRight: "100px",
+      // paddingRight: "100px",
+      alignItems: isMobile ? "center" : "flex-start",
+      textAlign: isMobile ? "center" : "flex-start",
+      
     },
     left: {
       flex: "1 1 40%",
@@ -77,14 +88,10 @@ function Unlock() {
   };
 
   return (
-    <section style={styles.hero}>
+    <section style={styles.Unlock}>
       <div style={styles.container}>
         <div style={styles.left}>
-          <img
-            src={Unlockimage}
-            alt="Unlock"
-            style={styles.image}
-          />
+          <img src={Unlockimage} alt="Unlock" style={styles.image} />
         </div>
         <div style={styles.right}>
           <h1 style={styles.heading}>

@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import icon from "../../assets/img/icon.png";
 
 export default function FooterSection() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+  
+    useEffect(() => {
+      const handleResize = () => setIsMobile(window.innerWidth < 769);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
   const styles = {
     topSection: {
       backgroundColor: "#f8fafc", // light background
@@ -141,7 +148,7 @@ export default function FooterSection() {
 
         {/* Stay up to date */}
         <div style={styles.column}>
-          <h4 style={styles.abc} >Stay up to date</h4>
+          <h4 style={styles.abc}>Stay up to date</h4>
           <input
             type="email"
             placeholder="Your email address"

@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import heroImage from "../../assets/img/illustration.png";
 
 function Hero() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setIsMobile(window.innerWidth < 769);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -27,7 +27,7 @@ function Hero() {
       width: "100%",
       justifyContent: "space-between",
       alignItems: "center",
-      flexDirection: isMobile ? "column-reverse" : "row", // 👈 Switch layout
+      flexDirection: isMobile ? "column-reverse" : "row", 
       gap: "clamp(20px, 4vw, 40px)",
       textAlign: isMobile ? "center" : "left",
     },

@@ -1,12 +1,20 @@
-import Unlockimage from "../../assets/img/T.jpg"; 
+import React, { useState, useEffect } from "react";
+import Unlockimage from "../../assets/img/T.jpg";
 import Logo1 from "../../assets/img/Logo.png";
 import Logo2 from "../../assets/img/Logo1.png";
 import Logo3 from "../../assets/img/Logo2.png";
 import Logo4 from "../../assets/img/Logo3.png";
 import Logo5 from "../../assets/img/Logo4.png";
-import Logo6 from "../../assets/img/Logo5.png"; 
+import Logo6 from "../../assets/img/Logo5.png";
 
 function Customer() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+  
+    useEffect(() => {
+      const handleResize = () => setIsMobile(window.innerWidth < 769);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
   const styles = {
     Customer: {
       display: "flex",

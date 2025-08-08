@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import icon from "../../assets/img/icon.png";
 
 function Header() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+  
+    useEffect(() => {
+      const handleResize = () => setIsMobile(window.innerWidth < 769);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
   const styles = {
     headerStyle: {
       display: "flex",
@@ -72,7 +79,7 @@ function Header() {
     },
   };
 
-  return (  
+  return (
     <header style={styles.headerStyle}>
       <div style={styles.container}>
         <div style={styles.logoSection}>
@@ -103,7 +110,6 @@ function Header() {
         </div>
       </div>
     </header>
-    
   );
 }
 
