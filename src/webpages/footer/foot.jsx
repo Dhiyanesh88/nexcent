@@ -50,6 +50,7 @@ export default function FooterSection() {
       border: "none",
       outline: "none",
       width: "200px",
+      color: "#ffffff",
     },
     socialIcons: {
       display: "flex",
@@ -140,7 +141,7 @@ export default function FooterSection() {
 
         {/* Stay up to date */}
         <div style={styles.column}>
-          <h4 style={styles.abc}>Stay up to date</h4>
+          <h4 style={styles.abc} >Stay up to date</h4>
           <input
             type="email"
             placeholder="Your email address"

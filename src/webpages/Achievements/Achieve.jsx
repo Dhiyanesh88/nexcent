@@ -59,6 +59,8 @@ function Achieve() {
     containerbox: {
       width: "40%",
       flexDirection: "row",
+      display: "flex",
+      gap: "15px"
     },
     containerboxtext: {
       flexDirection: "column",
@@ -81,8 +83,9 @@ function Achieve() {
       fontFamily: "Inter, sans-serif",
     },
     image: {
-      width: "48px",
-      height: "48px",
+      width: "50px",
+      height: "58px",
+      paddingTop:"10px"
     },
   };
 
