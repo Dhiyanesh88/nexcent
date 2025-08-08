@@ -1,14 +1,21 @@
-import React, { useState } from "react";
-import heroImage from "../../assets/img/illustration.png"; 
+import React, { useState, useEffect } from "react";
+import heroImage from "../../assets/img/illustration.png";
 
 function Hero() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const styles = {
     hero: {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      padding: "70px 5% 40px",
+      padding: "clamp(40px, 5vw, 70px) 5% clamp(20px, 4vw, 40px)",
       backgroundColor: "#f4f4f4ff",
       boxSizing: "border-box",
       minHeight: "calc(100vh - 80px)",
@@ -20,49 +27,46 @@ function Hero() {
       width: "100%",
       justifyContent: "space-between",
       alignItems: "center",
-      flexDirection: "row",
-      gap: "40px",
+      flexDirection: isMobile ? "column-reverse" : "row", // 👈 Switch layout
+      gap: "clamp(20px, 4vw, 40px)",
+      textAlign: isMobile ? "center" : "left",
     },
     left: {
       flex: "1 1 50%",
       display: "flex",
       flexDirection: "column",
-      gap: "24px",
+      gap: "clamp(16px, 3vw, 24px)",
+      alignItems: isMobile ? "center" : "flex-start",
     },
     right: {
       flex: "1 1 50%",
-      minWidth: "300px",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      minHeight: "300px",
     },
     heading: {
-      fontSize: "clamp(64px, 5vw, 48px)",
+      fontSize: "clamp(32px, 5vw, 64px)",
       color: "#414141ff",
       fontWeight: 600,
-      lineHeight: "76px",
+      lineHeight: "clamp(42px, 5.5vw, 76px)",
       margin: 0,
       fontFamily: "Inter, sans-serif",
-      letterSpacing: "0",
     },
-
     paragraph: {
-      fontSize: "clamp(16px, 2vw, 18px)",
+      fontSize: "clamp(14px, 2vw, 18px)",
       color: "#5a5d77",
       fontWeight: 400,
-      lineHeight: "24px",
+      lineHeight: "clamp(20px, 2.5vw, 28px)",
       margin: 0,
       fontFamily: "Inter, sans-serif",
-      letterSpacing: "0",
     },
     button: {
-      padding: "12px 24px",
+      padding: "clamp(10px, 1.2vw, 14px) clamp(16px, 2vw, 24px)",
       backgroundColor: "rgba(76, 175, 79, 1)",
       color: "white",
       border: "none",
       borderRadius: "8px",
-      fontSize: "16px",
+      fontSize: "clamp(14px, 1vw, 16px)",
       fontWeight: "600",
       cursor: "pointer",
       width: "fit-content",
@@ -70,7 +74,7 @@ function Hero() {
     },
     image: {
       width: "100%",
-      maxWidth: "400px",
+      maxWidth: "clamp(250px, 28vw, 400px)",
       height: "auto",
       borderRadius: "12px",
       objectFit: "contain",
@@ -88,9 +92,7 @@ function Hero() {
           <p style={styles.paragraph}>
             Where to grow your business as a photographer: site or social media?
           </p>
-          <button style={styles.button}>
-            Register
-          </button>
+          <button style={styles.button}>Register</button>
         </div>
         <div style={styles.right}>
           <img

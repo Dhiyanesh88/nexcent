@@ -19,18 +19,14 @@ function App() {
   return (
     <>
       <Header />
-      <main>
         <Hero />
         <Client />
         <Community />
-      </main>
-      <main>
         <Unlock />
         <Achieve />
         <Cal />
         <Customer />
         <Communityupd />
-      </main>
       <Foot />
     </>
   );

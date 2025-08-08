@@ -1,15 +1,13 @@
-import React, { useState } from "react";
-import clientImage from "../../assets/img/illustration.png"; 
-import Logo1 from "../../assets/img/Logo.png"; 
-import Logo2 from "../../assets/img/Logo1.png"; 
-import Logo3 from "../../assets/img/Logo2.png"; 
-import Logo4 from "../../assets/img/Logo3.png"; 
-import Logo5 from "../../assets/img/Logo4.png"; 
-import Logo6 from "../../assets/img/Logo5.png"; 
-import Logo7 from "../../assets/img/Logo6.png"; 
+import React from "react";
+import Logo1 from "../../assets/img/Logo.png";
+import Logo2 from "../../assets/img/Logo1.png";
+import Logo3 from "../../assets/img/Logo2.png";
+import Logo4 from "../../assets/img/Logo3.png";
+import Logo5 from "../../assets/img/Logo4.png";
+import Logo6 from "../../assets/img/Logo5.png";
+import Logo7 from "../../assets/img/Logo6.png";
 
 function Client() {
-
   const styles = {
     client: {
       display: "flex",
@@ -42,6 +40,7 @@ function Client() {
       width: "100%",
       alignItems: "center",
       justifyContent: "center",
+      flexWrap: "wrap", // allow wrapping on small screens
     },
     heading: {
       fontSize: "clamp(36px, 5vw, 30px)",
@@ -50,11 +49,8 @@ function Client() {
       lineHeight: "44px",
       margin: 0,
       fontFamily: "Inter, sans-serif",
-      letterSpacing: "0",
-      alignItems: "center",
       textAlign: "center",
     },
-
     paragraph: {
       fontSize: "clamp(16px, 2vw, 18px)",
       color: "rgba(113, 113, 113, 1)",
@@ -62,11 +58,21 @@ function Client() {
       lineHeight: "24px",
       margin: 0,
       fontFamily: "Inter, sans-serif",
-      letterSpacing: "0",
+      textAlign: "center",
     },
     image: {
       width: "48px",
       height: "48px",
+    },
+    // media query styles
+    "@media (max-width: 768px)": {
+      botom: {
+        gap: "20px",
+      },
+      image: {
+        width: "40px",
+        height: "40px",
+      },
     },
   };
 
@@ -82,7 +88,7 @@ function Client() {
         <div style={styles.botom}>
           <img src={Logo1} alt="L1" style={styles.image} />
           <img src={Logo2} alt="L2" style={styles.image} />
-          <img src={Logo3} alt="l3" style={styles.image} />
+          <img src={Logo3} alt="L3" style={styles.image} />
           <img src={Logo4} alt="L4" style={styles.image} />
           <img src={Logo5} alt="L5" style={styles.image} />
           <img src={Logo6} alt="L6" style={styles.image} />
