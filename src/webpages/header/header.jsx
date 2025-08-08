@@ -1,3 +1,4 @@
+
 import React from "react";
 import icon from "../../assets/img/icon.png";
 
@@ -13,7 +14,7 @@ const Header = () => {
     left: 0,
     boxSizing: "border-box",
     padding: "0 65px",
-    height: "80px", 
+    height: "80px",
   };
 
   const container = {
@@ -80,14 +81,13 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed-header" style={headerStyle}>
+    <header style={headerStyle}>
       <div style={container}>
         <div style={logoSection}>
           <img src={icon} alt="Logo" style={logoImage} />
           <div style={logoText}>Nexcent</div>
         </div>
-        <div>
-          <nav>
+        <nav>
           <ul style={nav}>
             {[
               "Home",
@@ -104,8 +104,7 @@ const Header = () => {
               </li>
             ))}
           </ul>
-          </nav>
-        </div> 
+        </nav>
         <div style={buttonGroup}>
           <button style={loginBtn}>Login</button>
           <button style={signupBtn}>Sign Up</button>
