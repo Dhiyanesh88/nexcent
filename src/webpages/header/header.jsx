@@ -72,7 +72,7 @@ function Header() {
     },
   };
 
-  return (
+  return (  
     <header style={styles.headerStyle}>
       <div style={styles.container}>
         <div style={styles.logoSection}>
@@ -103,6 +103,7 @@ function Header() {
         </div>
       </div>
     </header>
+    
   );
 }
 
