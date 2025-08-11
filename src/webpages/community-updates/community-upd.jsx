@@ -40,7 +40,7 @@ function Communityupd() {
     botom: {
       display: "flex",
       gap: "50px",
-      flexDirection: "row",
+      flexDirection: isMobile ? "column" : "row",
       width: "100%",
       alignItems: "center",
       justifyContent: "center",
@@ -76,21 +76,24 @@ function Communityupd() {
       borderRadius: "20px",
     },
     containerbox: {
-      width: "30%",
+      display: "flex",
+      flexDirection: isMobile ? "column": "row",
+      width: isMobile ? "80%": "35%",
       alignItems: "center",
       textAlign: "center",
       position: "relative",
+      
     },
     floatbox: {
-      width: "80%",
+      width: isMobile ? "100%": "85%",
       alignItems: "center",
       textAlign: "center",
       backgroundColor: "rgba(245, 247, 250, 1)",
-      marginTop: "-90px",
-      marginLeft: "40px",
+      marginTop: "250px",
+      marginLeft: "15px",
       position: "absolute",
       borderRadius: "8px",
-      padding: "12px 24px",
+      padding: "12px 20px",
       boxShadow: "2px 2px 2px rgba(171, 190, 209, 0.4)",
     },
     boxparagraph: {
@@ -104,6 +107,7 @@ function Communityupd() {
       alignItems: "center",
       textAlign: "center",
       marginBottom: "15px",
+      width: "95%",
     },
     button: {
       padding: "12px 24px",

@@ -36,7 +36,7 @@ function Achieve() {
       width: "100%",
       justifyContent: "space-between",
       alignItems: "center",
-      flexDirection: isTab ? "column" : "row",
+      flexDirection: isTab ? "column" : isMobile ? "column" : "row",
       gap: "24px",
     },
     left: {
