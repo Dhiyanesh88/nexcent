@@ -5,121 +5,103 @@ import IMG3 from "../../assets/img/UPD3.jpg";
 
 function Communityupd() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
-  
-    useEffect(() => {
-      const handleResize = () => setIsMobile(window.innerWidth < 769);
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-  const styles = {
-    Community: {
-      display: "flex",
-      padding: "70px 5% 70px",
-      backgroundColor: "white",
-      boxSizing: "border-box",
-      minHeight: "calc(10vh - 80px)",
-      width: "100%",
-      overflow: "hidden",
-    },
-    container: {
-      display: "flex",
-      width: "100%",
-      justifyContent: "space-between",
-      flexDirection: "column",
-      gap: "40px",
-      margin: "20px",
-    },
-    top: {
-      display: "flex",
-      flexDirection: "column",
-      gap: "24px",
-      justifyContent: "center",
-      alignItems: "center",
-      width: "100%",
-    },
-    botom: {
-      display: "flex",
-      gap: "50px",
-      flexDirection: isMobile ? "column" : "row",
-      width: "100%",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    heading: {
-      fontSize: "clamp(36px, 5vw, 30px)",
-      color: "rgba(77,77,77,1)",
-      fontWeight: 600,
-      lineHeight: "44px",
-      margin: 0,
-      fontFamily: "Inter, sans-serif",
-      letterSpacing: "0",
-      alignItems: "center",
-      textAlign: "center",
-      width: "43%",
-    },
 
-    paragraph: {
-      fontSize: "clamp(16px, 2vw, 18px)",
-      color: "rgba(113, 113, 113, 1)",
-      fontWeight: 400,
-      lineHeight: "24px",
-      margin: 0,
-      fontFamily: "Inter, sans-serif",
-      letterSpacing: "0",
-      alignItems: "center",
-      textAlign: "center",
-      width: "50%",
-    },
-    image: {
-      width: "368px",
-      height: "286px",
-      borderRadius: "20px",
-    },
-    containerbox: {
-      display: "flex",
-      flexDirection: isMobile ? "column": "row",
-      width: isMobile ? "80%": "35%",
-      alignItems: "center",
-      textAlign: "center",
-      position: "relative",
-      
-    },
-    floatbox: {
-      width: isMobile ? "100%": "85%",
-      alignItems: "center",
-      textAlign: "center",
-      backgroundColor: "rgba(245, 247, 250, 1)",
-      marginTop: "250px",
-      marginLeft: "15px",
-      position: "absolute",
-      borderRadius: "8px",
-      padding: "12px 20px",
-      boxShadow: "2px 2px 2px rgba(171, 190, 209, 0.4)",
-    },
-    boxparagraph: {
-      fontSize: "clamp(20px, 2vw, 18px)",
-      color: "rgba(113, 113, 113, 1)",
-      fontWeight: 600,
-      lineHeight: "28px",
-      margin: 0,
-      fontFamily: "Inter, sans-serif",
-      letterSpacing: "0",
-      alignItems: "center",
-      textAlign: "center",
-      marginBottom: "15px",
-      width: "95%",
-    },
-    button: {
-      padding: "12px 24px",
-      color: "rgba(76, 175, 79, 1)",
-      border: "none",
-      borderRadius: "8px",
-      fontSize: "16px",
-      fontWeight: "600",
-      cursor: "pointer",
-      width: "fit-content",
-    },
-  };
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 769);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const styles = {
+  Community: {
+    display: "flex",
+    padding: isMobile ? "40px 5%" : "40px 5% 150px",
+    backgroundColor: "white",
+    boxSizing: "border-box",
+    width: "100%",
+    overflow: "hidden",
+  },
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "clamp(24px, 4vw, 40px)", 
+    width: "100%",
+    margin: "auto",
+  },
+  top: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "clamp(16px, 2vw, 24px)",
+    alignItems: "center",
+    textAlign: "center",
+  },
+  botom: {
+    display: "flex",
+    gap: "clamp(32px, 5vw, 50px)", 
+    flexDirection: isMobile ? "column" : "row",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  heading: {
+    fontSize: "clamp(24px, 4vw, 36px)",
+    color: "rgba(77,77,77,1)",
+    fontWeight: 600,
+    lineHeight: "clamp(32px, 4vw, 44px)",
+    margin: 0,
+    fontFamily: "Inter, sans-serif",
+    width: "clamp(90%, 43vw, 43%)", 
+  },
+  paragraph: {
+    fontSize: "clamp(14px, 2vw, 18px)",
+    color: "rgba(113, 113, 113, 1)",
+    fontWeight: 400,
+    lineHeight: "clamp(20px, 2.5vw, 24px)",
+    margin: 0,
+    fontFamily: "Inter, sans-serif",
+    width: "clamp(90%, 50vw, 50%)", 
+  },
+  image: {
+    width: "clamp(100%, 30vw, 368px)", 
+    height: "auto", 
+    borderRadius: "20px",
+  },
+  containerbox: {
+    display: "flex",
+    flexDirection: "column",
+    width: "clamp(90%, 35vw, 35%)", 
+    alignItems: "center",
+    position: "relative",
+  },
+  floatbox: {
+    width: "clamp(90%, 85vw, 85%)", 
+    backgroundColor: "rgba(245, 247, 250, 1)",
+    marginTop: isMobile ? "0px" : "clamp(0px, 15vw , 250px)",
+    position: isMobile ? "relative" : "absolute",
+    borderRadius: "8px",
+    padding: "clamp(8px, 2vw, 12px) clamp(12px, 3vw, 20px)",
+    boxShadow: "2px 2px 2px rgba(171, 190, 209, 0.4)",
+    textAlign: "center",
+  },
+  boxparagraph: {
+    fontSize: "clamp(14px, 1.5vw, 20px)",
+    color: "rgba(113, 113, 113, 1)",
+    fontWeight: 600,
+    lineHeight: "clamp(22px, 3vw, 28px)",
+    marginBottom: "clamp(8px, 2vw, 15px)",
+    fontFamily: "Inter, sans-serif",
+  },
+  button: {
+    padding: "clamp(8px, 2vw, 12px) clamp(16px, 3vw, 24px)",
+    color: "rgba(76, 175, 79, 1)",
+    border: "none",
+    borderRadius: "8px",
+    fontSize: "clamp(14px, 1.8vw, 16px)",
+    fontWeight: 600,
+    cursor: "pointer",
+    backgroundColor: "transparent",
+  },
+};
+
 
   return (
     <section style={styles.Community}>
@@ -134,36 +116,22 @@ function Communityupd() {
           </p>
         </div>
         <div style={styles.botom}>
-          <div style={styles.containerbox}>
-            <img src={IMG1} alt="L1" style={styles.image} />
-            <div style={styles.floatbox}>
-              <p style={styles.boxparagraph}>
-                Creating Streamlined Safeguarding Processes with OneRen
-              </p>
-              <a style={styles.button}>Read More →</a>
-            </div>
-          </div>
-
-          <div style={styles.containerbox}>
-            <img src={IMG2} alt="L2" style={styles.image} />
-            <div style={styles.floatbox}>
-              <p style={styles.boxparagraph}>
-                What are your safeguarding responsibilities and how can you
-                manage them?
-              </p>
-              <a style={styles.button}>Read More →</a>
-            </div>
-          </div>
-
-          <div style={styles.containerbox}>
-            <img src={IMG3} alt="l3" style={styles.image} />
-            <div style={styles.floatbox}>
-              <p style={styles.boxparagraph}>
-                Revamping the Membership Model with Triathlon Australia
-              </p>
-              <a style={styles.button}>Read More →</a>
-            </div>
-          </div>
+          {[IMG1, IMG2, IMG3].map((img, i) => {
+            const texts = [
+              "Creating Streamlined Safeguarding Processes with OneRen",
+              "What are your safeguarding responsibilities and how can you manage them?",
+              "Revamping the Membership Model with Triathlon Australia",
+            ];
+            return (
+              <div style={styles.containerbox} key={i}>
+                <img src={img} alt={`L${i + 1}`} style={styles.image} />
+                <div style={styles.floatbox}>
+                  <p style={styles.boxparagraph}>{texts[i]}</p>
+                  <a style={styles.button}>Read More →</a>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
