@@ -91,7 +91,7 @@ function Header() {
     bar: {
       width: "25px",
       height: "3px",
-      backgroundColor: "#333",
+      backgroundColor: "#125010ff",
     },
     mobileMenuOverlay: {
       position: "fixed",
@@ -99,14 +99,14 @@ function Header() {
       left: 0,
       width: "100%",
       height: "100%",
-      backgroundColor: "rgba(0,0,0,0.5)",
+      backgroundColor: "rgba(0, 21, 0, 0.21)",
       display: menuOpen ? "block" : "none",
       zIndex: 999,
     },
     mobileMenu: {
       position: "fixed",
       top: 0,
-      right: 0, // slide from right
+      right: 0, 
       width: "50%",
       height: "100%",
       backgroundColor: "#fff",
