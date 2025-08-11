@@ -5,7 +5,14 @@ import Logo3 from "../../assets/img/A-Icon3.png";
 import Logo4 from "../../assets/img/A-Icon4.png";
 
 function Achieve() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 425);
+  
+    useEffect(() => {
+      const handleResize = () => setIsMobile(window.innerWidth < 425);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+    const [isTab, setIsTab] = useState(window.innerWidth < 769);
   
     useEffect(() => {
       const handleResize = () => setIsMobile(window.innerWidth < 769);
@@ -29,7 +36,8 @@ function Achieve() {
       width: "100%",
       justifyContent: "space-between",
       alignItems: "center",
-      flexDirection: isMobile ? "column" : "row",
+      flexDirection: isTab ? "column" : "row",
+      gap: "24px",
     },
     left: {
       flex: "1 1 50%",
@@ -39,12 +47,12 @@ function Achieve() {
     },
     right: {
       flex: "1 1 50%",
-      minWidth: "300px",
       display: "flex",
-      flexWrap: "wrap",
-      justifyContent: "center",
-      alignItems: "flex-start",
-      gap: "20px",
+      flexWrap: isMobile ? "nowrap" : "wrap", // allow two-column wrap on tablet/laptop
+      flexDirection: isMobile ? "column" : "row",
+      justifyContent: isMobile ? "flex-start" : "flex-start",
+      alignItems: isMobile ? "flex-start" : "center",
+      gap: isMobile ? "30px" : "40px", 
     },
     heading: {
       fontSize: "clamp(36px, 5vw, 30px)",
@@ -53,7 +61,7 @@ function Achieve() {
       lineHeight: "44px",
       margin: 0,
       fontFamily: "Inter, sans-serif",
-      width: "65%",
+      width: isMobile ? "100%" : "65%",
     },
     paragraph: {
       fontSize: "clamp(16px, 2vw, 18px)",
@@ -64,19 +72,20 @@ function Achieve() {
       fontFamily: "Inter, sans-serif",
     },
     containerbox: {
-      width: isMobile ? "100%" : "40%",
-      flexDirection: "row",
+      width: isMobile ? "100%" : "45%", // two per row on larger screens
       display: "flex",
-      gap: "15px",
+      flexDirection: "row",
+      gap: "10px",
     },
     containerboxtext: {
+      display: "flex",
       flexDirection: "column",
       textAlign: isMobile ? "center" : "left",
       marginLeft: isMobile ? "0" : "10px",
     },
 
     boxheading: {
-      fontSize: "clamp(36px, 5vw, 30px)",
+      fontSize: "clamp(36px, 3vw, 20px)",
       color: "rgba(77,77,77,1)",
       fontWeight: 600,
       lineHeight: "44px",
@@ -85,7 +94,7 @@ function Achieve() {
       padding: "0px",
     },
     boxparagraph: {
-      fontSize: "clamp(16px, 2vw, 18px)",
+      fontSize: "clamp(18px, 2vw, 15px)",
       color: "rgba(113, 113, 113, 1)",
       fontWeight: 400,
       lineHeight: "24px",

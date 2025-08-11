@@ -86,6 +86,8 @@ function Customer() {
       display: "flex",
       justifyContent: "",
       alignItems: "center",
+      justifyContent: "center",
+      flexWrap: "wrap", 
       width: "100%",
       gap: "20px",
     },
