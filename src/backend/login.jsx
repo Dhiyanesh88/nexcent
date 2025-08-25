@@ -19,28 +19,80 @@ function Login() {
     setMessage(text);
   };
 
+  const styles = {
+    login: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      height: "100vh",
+      backgroundColor: "#eef2f3",
+      padding: "clamp(10px, 3%, 20px)",
+      width: "100%",
+      boxSizing: "border-box",
+    },
+    container: {
+      width: "clamp(300px, 80%, 500px)",
+      margin: "50px auto",
+      padding: "clamp(20px, 5%, 30px)",
+      border: "1px solid #ccc",
+      borderRadius: "8px",
+      boxShadow: "0 0 10px rgba(0,0,0,0.1)",
+      textAlign: "center",
+    },
+    input: {
+      width: "clamp(200px, 70%, 400px)",
+      padding: "clamp(8px, 2vw, 12px)",
+      margin: "10px 0",
+      borderRadius: "4px",
+      border: "1px solid #ccc",
+      fontSize: "clamp(14px, 1.5vw, 16px)",
+    },
+    button: {
+      width: "clamp(200px, 70%, 400px)",
+      padding: "clamp(8px, 2vw, 12px)",
+      backgroundColor: "#4CAF50",
+      color: "white",
+      border: "none",
+      borderRadius: "4px",
+      cursor: "pointer",
+      fontSize: "clamp(14px, 1.5vw, 16px)",
+    },
+    buttonHover: {
+      backgroundColor: "#45a049",
+    },
+    title: {
+      marginBottom: "20px",
+      color: "#333",
+    },
+  };
+
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        /><br />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        /><br />
-        <button type="submit">Login</button>
-      </form>
-      <p>{message}</p>
-    </div>
+    <section style={styles.login}>
+      <div style={styles.container}>
+        <h2 style={styles.title}>LOGIN</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            style={styles.input}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            style={styles.input}
+          />
+          <button type="submit" style={styles.button} href="/login">
+            Login
+          </button>
+        </form>
+      </div>
+    </section>
   );
 }
 

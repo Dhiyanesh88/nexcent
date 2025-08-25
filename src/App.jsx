@@ -9,8 +9,8 @@ import Cal from "./webpages/Calender/Cal";
 import Customer from "./webpages/Customers/Customers";
 import Communityupd from "./webpages/community-updates/community-upd";
 import Foot from "./webpages/footer/foot";
-import Login from "./backend/login"; // Your Login.jsx
-import SignUp from "./backend/signup"; // Your SignUp.jsx
+import Login from "./backend/login"; 
+import SignUp from "./backend/signup"; 
 import "./App.css";
 
 function App() {
@@ -35,7 +35,7 @@ function App() {
             </>
           }
         />
-        
+
         <Route path="/login" element={<Login />} />
 
         <Route path="/signup" element={<SignUp />} />
