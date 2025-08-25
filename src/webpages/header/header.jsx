@@ -1,22 +1,31 @@
 import React, { useState, useEffect } from "react";
+import { href, Link } from "react-router-dom";
 import icon from "../../assets/img/icon.png";
 
 function Header() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 950);
-  const [isHamburger, setIsHamburger] = useState(window.innerWidth < 950);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "Services", href: "#services" },
+    { name: "Feature", href: "#feature" },
+    { name: "Product", href: "#product" },
+    { name: "Testimonial", href: "#testimonial" },
+    { name: "FAQ", href: "#faq" },
+  ];
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 950);
-    setIsHamburger(window.innerWidth < 950);
-
-    // Close menu if going desktop size
-    if (window.innerWidth >= 950) setMenuOpen(false);
+      const mobile = window.innerWidth < 950;
+      setIsMobile(mobile);
+      if (!mobile) setMenuOpen(false);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const closeMenu = () => setMenuOpen(false);
 
   const styles = {
     headerStyle: {
@@ -45,31 +54,11 @@ function Header() {
       gap: "10px",
       paddingRight: "20px",
     },
-    logoImage: {
-      width: "40px",
-      height: "25px",
-    },
-    logoText: {
-      fontSize: "1.5rem",
-      fontWeight: "bold",
-      color: "black",
-    },
-    nav: {
-      display: "flex",
-      gap: "60px",
-      listStyle: "none",
-      margin: 0,
-      padding: 0,
-    },
-    linkStyle: {
-      textDecoration: "none",
-      color: "#333",
-      fontWeight: 500,
-    },
-    buttonGroup: {
-      display: isMobile ? "none" : "flex",
-      gap: "10px",
-    },
+    logoImage: { width: "40px", height: "25px" },
+    logoText: { fontSize: "1.5rem", fontWeight: "bold", color: "black" },
+    nav: { display: "flex", gap: "60px", listStyle: "none", margin: 0, padding: 0 },
+    linkStyle: { textDecoration: "none", color: "#333", fontWeight: 500 },
+    buttonGroup: { display: isMobile ? "none" : "flex", gap: "10px" },
     loginBtn: {
       padding: "0.6rem 1.2rem",
       backgroundColor: "#fff",
@@ -79,7 +68,6 @@ function Header() {
       fontWeight: "bold",
     },
     signupBtn: {
-      // padding: "0.6rem 1.2rem",
       backgroundColor: "rgba(76, 175, 79, 1)",
       color: "#fff",
       border: "none",
@@ -87,17 +75,8 @@ function Header() {
       cursor: "pointer",
       fontWeight: "bold",
     },
-    hamburger: {
-      display: isMobile ? "flex" : "none",
-      flexDirection: "column",
-      gap: "5px",
-      cursor: "pointer",
-    },
-    bar: {
-      width: "25px",
-      height: "3px",
-      backgroundColor: "#125010ff",
-    },
+    hamburger: { display: isMobile ? "flex" : "none", flexDirection: "column", gap: "5px", cursor: "pointer" },
+    bar: { width: "25px", height: "3px", backgroundColor: "#125010ff" },
     mobileMenuOverlay: {
       position: "fixed",
       top: 0,
@@ -111,7 +90,7 @@ function Header() {
     mobileMenu: {
       position: "fixed",
       top: 0,
-      right: 0, 
+      right: 0,
       width: "50%",
       height: "100%",
       backgroundColor: "#fff",
@@ -124,39 +103,30 @@ function Header() {
       transition: "transform 0.3s ease-in-out",
       zIndex: 1000,
     },
-    mobileNav: {
-      listStyle: "none",
-      padding: 0,
-      margin: 0,
-      display: "flex",
-      flexDirection: "column",
-      gap: "30px",
-    },
-    mobileBtnGroup: {
-      display: "flex",
-      flexDirection: "column",
-      gap: "10px",
-    },
+    mobileNav: { listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "30px" },
+    mobileBtnGroup: { display: "flex", flexDirection: "column", gap: "10px" },
   };
-
-  const closeMenu = () => setMenuOpen(false);
 
   return (
     <>
       <header style={styles.headerStyle}>
         <div style={styles.container}>
+          {/* Logo */}
           <div style={styles.logoSection}>
             <img src={icon} alt="Logo" style={styles.logoImage} />
             <div style={styles.logoText}>Nexcent</div>
           </div>
 
-          {!isHamburger && (
+          {/* Desktop Navigation */}
+          {!isMobile && (
             <>
               <nav>
                 <ul style={styles.nav}>
-                  {["Home", "Services", "Feature", "Product", "Testimonial", "FAQ"].map((item) => (
-                    <li key={item}>
-                      <a href="#" style={styles.linkStyle}>{item}</a>
+                  {navLinks.map((item) => (
+                    <li key={item.name}>
+                      <a href={item.href} style={styles.linkStyle}>
+                        {item.name}
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -168,7 +138,8 @@ function Header() {
             </>
           )}
 
-          {isHamburger && (
+          {/* Hamburger */}
+          {isMobile && (
             <div style={styles.hamburger} onClick={() => setMenuOpen(true)}>
               <div style={styles.bar}></div>
               <div style={styles.bar}></div>
@@ -178,26 +149,33 @@ function Header() {
         </div>
       </header>
 
+      {/* Mobile Menu Overlay */}
       {menuOpen && <div style={styles.mobileMenuOverlay} onClick={closeMenu}></div>}
 
       {/* Mobile Menu */}
-      <div style={styles.mobileMenu}>
-        <nav>
-          <ul style={styles.mobileNav}>
-            {["Home", "Services", "Feature", "Product", "Testimonial", "FAQ"].map((item) => (
-              <li key={item}>
-                <a href="#" style={styles.linkStyle} onClick={closeMenu}>
-                  {item}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <div style={styles.mobileBtnGroup}>
-          <button style={styles.loginBtn} onClick={closeMenu}>Login</button>
-          <button style={styles.signupBtn} onClick={closeMenu}>Sign Up</button>
+      {isMobile && (
+        <div style={styles.mobileMenu}>
+          <nav>
+            <ul style={styles.mobileNav}>
+              {navLinks.map((item) => (
+                <li key={item.name}>
+                  <a href={item.href} style={styles.linkStyle} onClick={closeMenu}>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div style={styles.mobileBtnGroup}>
+            <button style={styles.loginBtn} onClick={closeMenu}>
+              Login
+            </button>
+            <button style={styles.signupBtn} onClick={closeMenu}>
+              Sign Up
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
