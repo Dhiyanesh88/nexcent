@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./webpages/header/header";
 import Hero from "./webpages/hero/hero";
 import Client from "./webpages/clients/client";
@@ -9,23 +9,35 @@ import Cal from "./webpages/Calender/Cal";
 import Customer from "./webpages/Customers/Customers";
 import Communityupd from "./webpages/community-updates/community-upd";
 import Foot from "./webpages/footer/foot";
+import Login from "./backend/login"; // Your Login.jsx
+import SignUp from "./backend/signup"; // Your SignUp.jsx
 import "./App.css";
-
 
 function App() {
   return (
-    <>
+    <Router>
       <Header />
-        <Hero />
-        <Client />
-        <Community />
-        <Unlock />
-        <Achieve />
-        <Cal />
-        <Customer />
-        <Communityupd />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Hero />
+              <Client />
+              <Community />
+              <Unlock />
+              <Achieve />
+              <Cal />
+              <Customer />
+              <Communityupd />
+            </>
+          }
+        />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+      </Routes>
       <Foot />
-    </>
+    </Router>
   );
 }
 

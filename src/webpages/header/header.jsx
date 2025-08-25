@@ -166,13 +166,13 @@ function Header() {
               ))}
             </ul>
           </nav>
-          <div style={styles.mobileBtnGroup}>
-            <button style={styles.loginBtn} onClick={closeMenu}>
-              Login
-            </button>
-            <button style={styles.signupBtn} onClick={closeMenu}>
-              Sign Up
-            </button>
+          <div style={styles.buttonGroup}>
+            <href to="./backend/login" style={{ textDecoration: "none" }}>
+              <button style={styles.loginBtn}>Login</button>
+            </href>
+            <Link to="/signup" style={{ textDecoration: "none" }}>
+              <button style={styles.signupBtn}>Sign Up</button>
+            </Link>
           </div>
         </div>
       )}
