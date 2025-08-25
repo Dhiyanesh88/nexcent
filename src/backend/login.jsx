@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // import useNavigate
+import { useNavigate } from "react-router-dom"; 
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-  const navigate = useNavigate(); // initialize navigate
+  const navigate = useNavigate(); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,9 +22,9 @@ function Login() {
       const text = await response.text();
       setMessage(text);
 
-      // Redirect if login is successful
-      if (text === "Login successful") { // adjust based on your PHP response
-        navigate("/home"); // redirect to /home
+    
+      if (text === "Login successful") { 
+        navigate("/home"); 
       }
     } catch (error) {
       console.error("Login error:", error);
