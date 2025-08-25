@@ -43,6 +43,7 @@ function Header() {
       display: "flex",
       alignItems: "center",
       gap: "10px",
+      paddingRight: "20px",
     },
     logoImage: {
       width: "40px",
@@ -78,7 +79,7 @@ function Header() {
       fontWeight: "bold",
     },
     signupBtn: {
-      padding: "0.6rem 1.2rem",
+      // padding: "0.6rem 1.2rem",
       backgroundColor: "rgba(76, 175, 79, 1)",
       color: "#fff",
       border: "none",
