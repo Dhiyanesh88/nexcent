@@ -16,12 +16,13 @@ import "./App.css";
 function App() {
   return (
     <Router>
-      <Header />
       <Routes>
+        {/* Home Page with Header and Footer */}
         <Route
           path="/"
           element={
             <>
+              <Header />
               <Hero />
               <Client />
               <Community />
@@ -30,13 +31,15 @@ function App() {
               <Cal />
               <Customer />
               <Communityupd />
+              <Foot />
             </>
           }
         />
+        
         <Route path="/login" element={<Login />} />
+
         <Route path="/signup" element={<SignUp />} />
       </Routes>
-      <Foot />
     </Router>
   );
 }

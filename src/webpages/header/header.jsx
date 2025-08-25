@@ -132,9 +132,20 @@ function Header() {
                 </ul>
               </nav>
               <div style={styles.buttonGroup}>
-                <button style={styles.loginBtn}>Login</button>
-                <button style={styles.signupBtn}>Sign Up</button>
+                <button
+                  style={styles.loginBtn}
+                  onClick={() => window.location.href = "/login"}
+                >
+                  Login
+                </button>
+                <button
+                  style={styles.signupBtn}
+                  onClick={() => window.location.href = "/signup"}
+                >
+                  Sign Up
+                </button>
               </div>
+
             </>
           )}
 
