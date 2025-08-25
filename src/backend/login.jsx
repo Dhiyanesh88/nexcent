@@ -1,22 +1,35 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // import useNavigate
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const navigate = useNavigate(); // initialize navigate
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const formData = new FormData();
     formData.append("username", username);
     formData.append("password", password);
 
-    const response = await fetch("http://localhost/login2.php", {
-      method: "POST",
-      body: formData,
-    });
-    const text = await response.text();
-    setMessage(text);
+    try {
+      const response = await fetch("http://localhost/login2.php", {
+        method: "POST",
+        body: formData,
+      });
+      const text = await response.text();
+      setMessage(text);
+
+      // Redirect if login is successful
+      if (text === "Login successful") { // adjust based on your PHP response
+        navigate("/home"); // redirect to /home
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      setMessage("An error occurred. Please try again.");
+    }
   };
 
   const styles = {
@@ -57,12 +70,13 @@ function Login() {
       cursor: "pointer",
       fontSize: "clamp(14px, 1.5vw, 16px)",
     },
-    buttonHover: {
-      backgroundColor: "#45a049",
-    },
     title: {
       marginBottom: "20px",
       color: "#333",
+    },
+    message: {
+      marginTop: "10px",
+      color: "red",
     },
   };
 
@@ -87,10 +101,11 @@ function Login() {
             required
             style={styles.input}
           />
-          <button type="submit" style={styles.button} href="/login">
+          <button type="submit" style={styles.button}>
             Login
           </button>
         </form>
+        {message && <p style={styles.message}>{message}</p>}
       </div>
     </section>
   );
