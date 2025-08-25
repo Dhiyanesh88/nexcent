@@ -2,13 +2,17 @@ import React, { useState, useEffect } from "react";
 import icon from "../../assets/img/icon.png";
 
 function Header() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 950);
+  const [isHamburger, setIsHamburger] = useState(window.innerWidth < 950);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 769);
-      if (window.innerWidth >= 769) setMenuOpen(false);
+      setIsMobile(window.innerWidth < 950);
+    setIsHamburger(window.innerWidth < 950);
+
+    // Close menu if going desktop size
+    if (window.innerWidth >= 950) setMenuOpen(false);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -50,7 +54,7 @@ function Header() {
       color: "black",
     },
     nav: {
-      display: isMobile ? "none" : "flex",
+      display: "flex",
       gap: "60px",
       listStyle: "none",
       margin: 0,
@@ -145,7 +149,7 @@ function Header() {
             <div style={styles.logoText}>Nexcent</div>
           </div>
 
-          {!isMobile && (
+          {!isHamburger && (
             <>
               <nav>
                 <ul style={styles.nav}>
@@ -163,7 +167,7 @@ function Header() {
             </>
           )}
 
-          {isMobile && (
+          {isHamburger && (
             <div style={styles.hamburger} onClick={() => setMenuOpen(true)}>
               <div style={styles.bar}></div>
               <div style={styles.bar}></div>
