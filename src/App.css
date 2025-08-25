@@ -26,11 +26,11 @@ main {
 }
 
 /* Fixed header utility */
-.fixed-header {
+/* .fixed-header {
   top: 0;
   width: 100%;
   z-index: 1000;
-}
+} */
 
 /* Responsive (optional basic tweaks) */
 @media (max-width: 768px) {
