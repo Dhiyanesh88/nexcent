@@ -44,9 +44,9 @@ function SignUp() {
       fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     },
     container: {
-      width: "clamp(300px, 80%, 500px)",
-      padding: "clamp(25px, 5%, 35px)",
-      borderRadius: "16px",
+      width: "clamp(300px, 80%, 550px)",
+      padding: "clamp(25px, 5%, 45px)",
+      borderRadius: "25px",
       background: "linear-gradient(135deg, rgba(210, 228, 214, 0.55), rgba(255, 255, 255, 0.6))",
       backdropFilter: "blur(10px)",
       boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
