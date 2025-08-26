@@ -9,13 +9,14 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    debugger;
 
     const formData = new FormData();
     formData.append("username", username);
     formData.append("password", password);
 
     try {
-      const response = await fetch("http://localhost/login2.php", {
+      const response = await fetch("http://localhost/nexent_api/login2.php", {
         method: "POST",
         body: formData,
       });
@@ -24,7 +25,7 @@ function Login() {
 
     
       if (text === "Login successful") { 
-        navigate("/home"); 
+        navigate("/app"); 
       }
     } catch (error) {
       console.error("Login error:", error);
@@ -38,45 +39,55 @@ function Login() {
       justifyContent: "center",
       alignItems: "center",
       height: "100vh",
-      backgroundColor: "#eef2f3",
-      padding: "clamp(10px, 3%, 20px)",
       width: "100%",
       boxSizing: "border-box",
+      background: "linear-gradient(135deg, #a8e063, #56ab2f)", // fresh green bg
+      fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     },
     container: {
       width: "clamp(300px, 80%, 500px)",
-      margin: "50px auto",
-      padding: "clamp(20px, 5%, 30px)",
-      border: "1px solid #ccc",
-      borderRadius: "8px",
-      boxShadow: "0 0 10px rgba(0,0,0,0.1)",
+      padding: "clamp(25px, 5%, 35px)",
+      borderRadius: "16px",
+      background: "linear-gradient(135deg, rgba(210, 228, 214, 0.55), rgba(255, 255, 255, 0.6))",
+      backdropFilter: "blur(10px)",
+      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
       textAlign: "center",
+      animation: "fadeIn 0.6s ease-in-out",
     },
     input: {
       width: "clamp(200px, 70%, 400px)",
-      padding: "clamp(8px, 2vw, 12px)",
-      margin: "10px 0",
-      borderRadius: "4px",
-      border: "1px solid #ccc",
+      padding: "clamp(10px, 2vw, 14px)",
+      margin: "12px 0",
+      background: "linear-gradient(135deg, #e1eddbff, #e7ffcaff)",
+      borderRadius: "8px",
+      border: "1px solid #4caf4f",
       fontSize: "clamp(14px, 1.5vw, 16px)",
+      outline: "none",
+      transition: "all 0.2s",
+      color: "#033f0bff",
     },
     button: {
       width: "clamp(200px, 70%, 400px)",
-      padding: "clamp(8px, 2vw, 12px)",
-      backgroundColor: "#4CAF50",
+      padding: "clamp(10px, 2vw, 14px)",
+      background: "#4caf4f",
       color: "white",
       border: "none",
-      borderRadius: "4px",
+      borderRadius: "8px",
       cursor: "pointer",
       fontSize: "clamp(14px, 1.5vw, 16px)",
+      transition: "all 0.3s ease",
     },
     title: {
       marginBottom: "20px",
-      color: "#333",
+      color: "#4caf4f",
+      fontWeight: "700",
+      fontSize: "1.8rem",
+      letterSpacing: "1px",
     },
     message: {
-      marginTop: "10px",
-      color: "red",
+      marginTop: "15px",
+      color: "#2e7d32",
+      fontWeight: "500",
     },
   };
 
