@@ -11,6 +11,7 @@ function SignUp() {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
+    debugger;
     e.preventDefault();
     const formData = new FormData();
     formData.append("username", username);
@@ -25,7 +26,7 @@ function SignUp() {
       const text = await response.text();
       setMessage(text);
 
-      if (text === "Signup successful") {
+      if (text === "Sign-up successful!") {
         navigate("/login");
       }
     } catch (error) {
@@ -159,9 +160,10 @@ function SignUp() {
                 transform: "translate(-50%, -50%)",
               }}
               animate={{
-                x: [60, 60, -60, -60, 60],
-                y: [-40, 40, 40, -40, -40],
+                x: [70, 70, -70, -70, 70],
+                y: [-30, 30, 30, -30, -30],
               }}
+
               transition={{
                 duration: 6,
                 repeat: Infinity,
@@ -210,4 +212,3 @@ function SignUp() {
 }
 
 export default SignUp;
-

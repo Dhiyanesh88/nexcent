@@ -178,9 +178,9 @@ function Header() {
             </ul>
           </nav>
           <div style={styles.buttonGroup}>
-            <href to="./backend/login" style={{ textDecoration: "none" }}>
+            <Link to="/login" style={{ textDecoration: "none" }}>
               <button style={styles.loginBtn}>Login</button>
-            </href>
+            </Link>
             <Link to="/signup" style={{ textDecoration: "none" }}>
               <button style={styles.signupBtn}>Sign Up</button>
             </Link>

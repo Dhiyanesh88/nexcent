@@ -9,6 +9,7 @@ function Login() {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
+    debugger;
     e.preventDefault();
 
     const formData = new FormData();
@@ -23,8 +24,8 @@ function Login() {
       const text = await response.text();
       setMessage(text);
 
-      if (text === "Login successful") {
-        navigate("/app");
+      if (text === "Login successful! Welcome") {
+        navigate("/");
       }
     } catch (error) {
       console.error("Login error:", error);
@@ -157,7 +158,7 @@ function Login() {
               }}
               animate={{
                 x: [60, 60, -60, -60, 60],
-                y: [-40, 40, 40, -40, -40],
+                y: [-30, 30, 30, -30, -30],
               }}
               transition={{
                 duration: 6,
