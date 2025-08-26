@@ -66,6 +66,7 @@ function Header() {
       borderRadius: "5px",
       cursor: "pointer",
       fontWeight: "bold",
+      border: "2px solid #4caf4f",
     },
     signupBtn: {
       backgroundColor: "rgba(76, 175, 79, 1)",
@@ -74,6 +75,7 @@ function Header() {
       borderRadius: "5px",
       cursor: "pointer",
       fontWeight: "bold",
+      
     },
     hamburger: { display: isMobile ? "flex" : "none", flexDirection: "column", gap: "5px", cursor: "pointer" },
     bar: { width: "25px", height: "3px", backgroundColor: "#125010ff" },
