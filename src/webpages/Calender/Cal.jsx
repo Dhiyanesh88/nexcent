@@ -3,14 +3,16 @@ import Unlockimage from "../../assets/img/Calender.png";
 
 function Cal() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
-  
-    useEffect(() => {
-      const handleResize = () => setIsMobile(window.innerWidth < 769);
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 769);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+
   const styles = {
-    hero: {
+    calender: {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
@@ -86,7 +88,7 @@ function Cal() {
   };
 
   return (
-    <section style={styles.hero}>
+    <section style={styles.calender}>
       <div style={styles.container}>
         <div style={styles.left}>
           <img src={Unlockimage} alt="Unlock" style={styles.image} />

@@ -92,7 +92,7 @@ function Hero() {
           <p style={styles.paragraph}>
             Where to grow your business as a photographer: site or social media?
           </p>
-          <button style={styles.button}>Register</button>
+          <button style={styles.button} onClick={() => window.location.href = "/signup"}>Register</button>
         </div>
         <div style={styles.right}>
           <img

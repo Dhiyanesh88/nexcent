@@ -15,6 +15,7 @@ function Customer() {
       window.addEventListener("resize", handleResize);
       return () => window.removeEventListener("resize", handleResize);
     }, []);
+    const logos = [Logo1, Logo2, Logo3, Logo4, Logo5, Logo6];
   const styles = {
     Customer: {
       display: "flex",
@@ -138,12 +139,9 @@ function Customer() {
             </p>
           </div>
           <div style={styles.links}>
-            <img src={Logo1} alt="L1" style={styles.logoimage} />
-            <img src={Logo2} alt="L2" style={styles.logoimage} />
-            <img src={Logo3} alt="l3" style={styles.logoimage} />
-            <img src={Logo4} alt="L4" style={styles.logoimage} />
-            <img src={Logo5} alt="L5" style={styles.logoimage} />
-            <img src={Logo6} alt="L6" style={styles.logoimage} />
+             {logos.map((logo, index) => (
+              <img key={index} src={logo} alt={`Logo ${index + 1}`} style={styles.logoimage} />
+            ))}
             <a style={styles.button}>Meet all customers →</a>
           </div>
         </div>

@@ -128,7 +128,13 @@ function SignUp() {
       box-shadow: 0 0 6px rgba(76, 175, 80, 0.6) !important;
     }
   `;
-
+  const triangles = [{ shape: "green", delay: 0, finalX: -30, finalY: -30 },
+  { shape: "invertedGreen", delay: 0.2, finalX: 30, finalY: -30 },
+  { shape: "white", delay: 0.4, finalX: -30, finalY: 30 },
+  { shape: "green", delay: 0.6, finalX: 30, finalY: 30 },
+  { shape: "invertedGreen", delay: 0.8, finalX: 0, finalY: 0 },
+  { shape: "white", delay: 1.0, finalX: -60, finalY: 0 },
+  ];
 
   return (
     <section style={styles.signup}>
@@ -138,14 +144,7 @@ function SignUp() {
           <h2 style={styles.title}>SIGN UP</h2>
 
           {/* Orbiting Triangles */}
-          {[
-            { shape: "invertedGreen", delay: 0 },
-            { shape: "green", delay: 0.4 },
-            { shape: "white", delay: 0.8 },
-            { shape: "green", delay: 1.2 },
-            { shape: "invertedGreen", delay: 1.6 },
-            { shape: "white", delay: 2.0 },
-          ].map((tri, i) => (
+          {triangles.map((tri, i) => (
             <motion.div
               key={i}
               style={{
@@ -159,17 +158,28 @@ function SignUp() {
                 top: "45%",
                 transform: "translate(-50%, -50%)",
               }}
-              animate={{
-                x: [70, 70, -70, -70, 70],
-                y: [-30, 30, 30, -30, -30],
-              }}
-
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                delay: tri.delay,
-                ease: "linear",
-              }}
+              initial={{ x: 0, y: 0 }}
+              animate={[
+                {
+                  // Looping part
+                  x: [-70, -70, 70, 70, -70],
+                  y: [-27, 27, 27, -27, -27],
+                  transition: {
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "linear",
+                    delay: tri.delay,
+                  },
+                },
+                // {
+                //   x: tri.finalX - 50,
+                //   y: 0,               
+                //   transition: {
+                //     duration: 1,
+                //     delay: 1,
+                //   },
+                // }
+              ]}
             >
               {/* This offset defines orbit radius (push triangles away from text) */}
               <div style={{ transform: "translateX(160px)" }} />

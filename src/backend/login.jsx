@@ -110,6 +110,13 @@ function Login() {
     },
   };
 
+  const triangles = [{ shape: "green", delay: 0, finalX: -30, finalY: -30 },
+  { shape: "invertedGreen", delay: 0.2, finalX: 30, finalY: -30 },
+  { shape: "white", delay: 0.4, finalX: -30, finalY: 30 },
+  { shape: "green", delay: 0.6, finalX: 30, finalY: 30 },
+  { shape: "invertedGreen", delay: 0.8, finalX: 0, finalY: 0 },
+  { shape: "white", delay: 1.0, finalX: -60, finalY: 0 },
+  ];
   const autofillStyles = `
     input:-webkit-autofill,
     input:-webkit-autofill:hover,
@@ -135,39 +142,45 @@ function Login() {
           <h2 style={styles.title}>LOGIN</h2>
 
           {/* Orbiting Triangles */}
-          {[
-            { shape: "invertedGreen", delay: 0 },
-            { shape: "green", delay: 0.4 },
-            { shape: "white", delay: 0.8 },
-            { shape: "green", delay: 1.2 },
-            { shape: "invertedGreen", delay: 1.6 },
-            { shape: "white", delay: 2.0 },
-          ].map((tri, i) => (
+          {triangles.map((tri, i) => (
             <motion.div
               key={i}
               style={{
                 ...(tri.shape === "green"
                   ? styles.orbitTriangle
                   : tri.shape === "invertedGreen"
-                  ? styles.orbitTriangleInverted
-                  : styles.orbitTriangleWhite),
+                    ? styles.orbitTriangleInverted
+                    : styles.orbitTriangleWhite),
                 position: "absolute",
                 left: "45%",
                 top: "45%",
                 transform: "translate(-50%, -50%)",
               }}
-              animate={{
-                x: [60, 60, -60, -60, 60],
-                y: [-30, 30, 30, -30, -30],
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                delay: tri.delay,
-                ease: "linear",
-              }}
+              initial={{ x: 0, y: 0 }}
+              animate={[
+                {
+                  // Looping part
+                  x: [-60, -60, 60, 60, -60],
+                  y: [-30, 30, 30, -30, -30],
+                  transition: {
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "linear",
+                    delay: tri.delay,
+                  },
+                },
+                // {
+                //   x: tri.finalX - 50,
+                //   y: 0,               
+                //   transition: {
+                //     duration: 1,
+                //     delay: 1,
+                //   },
+                // }
+              ]}
             />
           ))}
+
         </div>
 
         <form onSubmit={handleSubmit}>

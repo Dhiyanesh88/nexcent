@@ -6,19 +6,46 @@ import Logo4 from "../../assets/img/A-Icon4.png";
 
 function Achieve() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 425);
-  
-    useEffect(() => {
-      const handleResize = () => setIsMobile(window.innerWidth < 425);
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-    const [isTab, setIsTab] = useState(window.innerWidth < 769);
-  
-    useEffect(() => {
-      const handleResize = () => setIsMobile(window.innerWidth < 769);
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 425);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  const [isTab, setIsTab] = useState(window.innerWidth < 769);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 769);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  const achieveData = [
+    {
+      id: 1,
+      img: Logo1,
+      count: "2,245,341",
+      label: "Members",
+    },
+    {
+      id: 2,
+      img: Logo2,
+      count: "46,328",
+      label: "Clubs",
+    },
+    {
+      id: 3,
+      img: Logo3,
+      count: "828,867",
+      label: "Event Bookings",
+    },
+    {
+      id: 4,
+      img: Logo4,
+      count: "1,926,436",
+      label: "Payments",
+    },
+  ];
+
   const styles = {
     Achieve: {
       display: "flex",
@@ -52,7 +79,7 @@ function Achieve() {
       flexDirection: isMobile ? "column" : "row",
       justifyContent: isMobile ? "flex-start" : "flex-start",
       alignItems: isMobile ? "flex-start" : "center",
-      gap: isMobile ? "30px" : "40px", 
+      gap: isMobile ? "30px" : "40px",
     },
     heading: {
       fontSize: "clamp(36px, 5vw, 30px)",
@@ -123,34 +150,15 @@ function Achieve() {
           </p>
         </div>
         <div style={styles.right}>
-          <div style={styles.containerbox}>
-            <img src={Logo1} alt="Members" style={styles.image} />
-            <div style={styles.containerboxtext}>
-              <h1 style={styles.boxheading}>2,245,341</h1>
-              <p style={styles.boxparagraph}>Members</p>
+          {achieveData.map((item) => (
+            <div key={item.id} style={styles.containerbox}>
+              <img src={item.img} alt={item.label} style={styles.image} />
+              <div style={styles.containerboxtext}>
+                <h1 style={styles.boxheading}>{item.count}</h1>
+                <p style={styles.boxparagraph}>{item.label}</p>
+              </div>
             </div>
-          </div>
-          <div style={styles.containerbox}>
-            <img src={Logo2} alt="Members" style={styles.image} />
-            <div style={styles.containerboxtext}>
-              <h1 style={styles.boxheading}>46,328</h1>
-              <p style={styles.boxparagraph}>Clubs</p>
-            </div>
-          </div>
-          <div style={styles.containerbox}>
-            <img src={Logo3} alt="Members" style={styles.image} />
-            <div style={styles.containerboxtext}>
-              <h1 style={styles.boxheading}>828,867</h1>
-              <p style={styles.boxparagraph}>Event Bookings</p>
-            </div>
-          </div>
-          <div style={styles.containerbox}>
-            <img src={Logo4} alt="Members" style={styles.image} />
-            <div style={styles.containerboxtext}>
-              <h1 style={styles.boxheading}>1,926,436</h1>
-              <p style={styles.boxparagraph}>Payments</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

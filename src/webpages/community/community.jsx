@@ -11,6 +11,27 @@ function Community() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+  const communityData = {
+  heading: "Manage your entire community in a single system",
+  subHeading: "Who is Nextcent suitable for?",
+  boxes: [
+    {
+      logo: Logo1,
+      title: "Membership Organisations",
+      description: "Our membership management software provides full automation of membership renewals and payments",
+    },
+    {
+      logo: Logo2,
+      title: "National Associations",
+      description: "Our membership management software provides full automation of membership renewals and payments",
+    },
+    {
+      logo: Logo3,
+      title: "Clubs And Groups",
+      description: "Our membership management software provides full automation of membership renewals and payments",
+    },
+  ],
+};
 
   const styles = {
     Community: {
@@ -96,28 +117,15 @@ function Community() {
     <section style={styles.Community}>
       <div style={styles.container}>
         <div style={styles.top}>
-          <h1 style={styles.heading}>
-            Manage your entire community in a single system
-          </h1>
-          <p style={styles.paragraph}>Who is Nextcent suitable for?</p>
+          <h1 style={styles.heading}>{communityData.heading}</h1>
+          <p style={styles.paragraph}>{communityData.subHeading}</p>
         </div>
-        <div style={styles.bottom}>
-          {[Logo1, Logo2, Logo3].map((logo, i) => (
+         <div style={styles.bottom}>
+          {communityData.boxes.map((box, i) => (
             <div key={i} style={styles.containerbox}>
-              <img src={logo} alt={`Logo ${i + 1}`} style={styles.image} />
-              <h1 style={styles.boxheading}>
-                {
-                  [
-                    "Membership Organisations",
-                    "National Associations",
-                    "Clubs And Groups",
-                  ][i]
-                }
-              </h1>
-              <p style={styles.boxparagraph}>
-                Our membership management software provides full automation of
-                membership renewals and payments
-              </p>
+              <img src={box.logo} alt={box.title} style={styles.image} />
+              <h1 style={styles.boxheading}>{box.title}</h1>
+              <p style={styles.boxparagraph}>{box.description}</p>
             </div>
           ))}
         </div>
