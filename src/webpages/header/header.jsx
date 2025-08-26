@@ -177,14 +177,14 @@ function Header() {
               ))}
             </ul>
           </nav>
-          <div style={styles.buttonGroup}>
-            <Link to="/login" style={{ textDecoration: "none" }}>
-              <button style={styles.loginBtn}>Login</button>
-            </Link>
-            <Link to="/signup" style={{ textDecoration: "none" }}>
-              <button style={styles.signupBtn}>Sign Up</button>
-            </Link>
-          </div>
+          <div style={styles.mobileBtnGroup}>
+      <Link to="/login" style={{ textDecoration: "none" }}>
+        <button style={styles.loginBtn}>Login</button>
+      </Link>
+      <Link to="/signup" style={{ textDecoration: "none" }}>
+        <button style={styles.signupBtn}>Sign Up</button>
+      </Link>
+    </div>
         </div>
       )}
     </>
