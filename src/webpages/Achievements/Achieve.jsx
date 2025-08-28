@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import Logo1 from "../../assets/img/A-Icon1.png";
 import Logo2 from "../../assets/img/A-Icon2.png";
 import Logo3 from "../../assets/img/A-Icon3.png";
@@ -6,19 +6,63 @@ import Logo4 from "../../assets/img/A-Icon4.png";
 
 function Achieve() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 425);
-  
-    useEffect(() => {
-      const handleResize = () => setIsMobile(window.innerWidth < 425);
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-    const [isTab, setIsTab] = useState(window.innerWidth < 769);
-  
-    useEffect(() => {
-      const handleResize = () => setIsMobile(window.innerWidth < 769);
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
+  const [backendData, setBackendData] = useState(null);
+
+  const fetchdata = async () => {
+    try {
+      const response = await fetch("http://localhost/nexent_api/achieve.php");
+      const data = await response.json();
+      setBackendData(data); // store data in state
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchdata();
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 425);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  const [isTab, setIsTab] = useState(window.innerWidth < 769);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 769);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  const icons = [Logo1, Logo2, Logo3, Logo4];
+
+  const achieveData = [
+    {
+      id: 1,
+      img: Logo1,
+      count: "2,245,341",
+      label: "Members",
+    },
+    {
+      id: 2,
+      img: Logo2,
+      count: "46,328",
+      label: "Clubs",
+    },
+    {
+      id: 3,
+      img: Logo3,
+      count: "828,867",
+      label: "Event Bookings",
+    },
+    {
+      id: 4,
+      img: Logo4,
+      count: "1,926,436",
+      label: "Payments",
+    },
+  ];
+
   const styles = {
     Achieve: {
       display: "flex",
@@ -52,7 +96,7 @@ function Achieve() {
       flexDirection: isMobile ? "column" : "row",
       justifyContent: isMobile ? "flex-start" : "flex-start",
       alignItems: isMobile ? "flex-start" : "center",
-      gap: isMobile ? "30px" : "40px", 
+      gap: isMobile ? "30px" : "40px",
     },
     heading: {
       fontSize: "clamp(36px, 5vw, 30px)",
@@ -112,45 +156,26 @@ function Achieve() {
     <section style={styles.Achieve}>
       <div style={styles.container}>
         <div style={styles.left}>
-          <h1 style={styles.heading}>
-            Helping a local{" "}
+          <h1 style={styles.heading}>{backendData?.heading}
+            {" "}
             <span style={{ color: "rgba(76, 175, 79, 1)" }}>
-              business reinvent itself
+              {backendData?.highlight}
             </span>
           </h1>
           <p style={styles.paragraph}>
-            We reached here with our hard work and dedication
+            {backendData?.paragraph}
           </p>
         </div>
         <div style={styles.right}>
-          <div style={styles.containerbox}>
-            <img src={Logo1} alt="Members" style={styles.image} />
-            <div style={styles.containerboxtext}>
-              <h1 style={styles.boxheading}>2,245,341</h1>
-              <p style={styles.boxparagraph}>Members</p>
+          {backendData?.items?.map((item, index) => (
+            <div key={index} style={styles.containerbox}>
+              <img src={achieveData[index].img} alt={item.label} style={styles.image} />
+              <div style={styles.containerboxtext}>
+                <h1 style={styles.boxheading}>{item.count}</h1>
+                <p style={styles.boxparagraph}>{item.label}</p>
+              </div>
             </div>
-          </div>
-          <div style={styles.containerbox}>
-            <img src={Logo2} alt="Members" style={styles.image} />
-            <div style={styles.containerboxtext}>
-              <h1 style={styles.boxheading}>46,328</h1>
-              <p style={styles.boxparagraph}>Clubs</p>
-            </div>
-          </div>
-          <div style={styles.containerbox}>
-            <img src={Logo3} alt="Members" style={styles.image} />
-            <div style={styles.containerboxtext}>
-              <h1 style={styles.boxheading}>828,867</h1>
-              <p style={styles.boxparagraph}>Event Bookings</p>
-            </div>
-          </div>
-          <div style={styles.containerbox}>
-            <img src={Logo4} alt="Members" style={styles.image} />
-            <div style={styles.containerboxtext}>
-              <h1 style={styles.boxheading}>1,926,436</h1>
-              <p style={styles.boxparagraph}>Payments</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

@@ -9,12 +9,36 @@ import Logo7 from "../../assets/img/Logo6.png";
 
 function Client() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
-  
+  const [backendData, setBackendData] = useState(null);
+      
+     const fetchdata = async () => {
+        try {
+          const response = await fetch("http://localhost/nexent_api/client.php");
+          const data = await response.json();
+          setBackendData(data); // store data in state
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
+    
+      useEffect(() => {
+        fetchdata();
+      }, []);
+      
     useEffect(() => {
       const handleResize = () => setIsMobile(window.innerWidth < 769);
       window.addEventListener("resize", handleResize);
       return () => window.removeEventListener("resize", handleResize);
     }, []);
+    const clients = [
+  { id: 1, name: "Client 1", logo: Logo1 },
+  { id: 2, name: "Client 2", logo: Logo2 },
+  { id: 3, name: "Client 3", logo: Logo3 },
+  { id: 4, name: "Client 4", logo: Logo4 },
+  { id: 5, name: "Client 5", logo: Logo5 },
+  { id: 6, name: "Client 6", logo: Logo6 },
+  { id: 7, name: "Client 7", logo: Logo7 },
+];
   const styles = {
     client: {
       display: "flex",
@@ -87,19 +111,20 @@ function Client() {
     <section style={styles.client}>
       <div style={styles.container}>
         <div style={styles.top}>
-          <h1 style={styles.heading}>Our Client</h1>
+          <h1 style={styles.heading}>{backendData?.heading}</h1>
           <p style={styles.paragraph}>
-            We have been working with some Fortune 500+ clients
+            {backendData?.paragraph}
           </p>
         </div>
         <div style={styles.botom}>
-          <img src={Logo1} alt="L1" style={styles.image} />
-          <img src={Logo2} alt="L2" style={styles.image} />
-          <img src={Logo3} alt="L3" style={styles.image} />
-          <img src={Logo4} alt="L4" style={styles.image} />
-          <img src={Logo5} alt="L5" style={styles.image} />
-          <img src={Logo6} alt="L6" style={styles.image} />
-          <img src={Logo7} alt="L7" style={styles.image} />
+          {clients.map((client) => (
+            <img
+              key={client.id}
+              src={client.logo}
+              alt={client.name}
+              style={styles.image}
+            />
+          ))}
         </div>
       </div>
     </section>

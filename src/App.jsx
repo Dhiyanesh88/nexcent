@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./webpages/header/header";
 import Hero from "./webpages/hero/hero";
 import Client from "./webpages/clients/client";
@@ -9,23 +9,38 @@ import Cal from "./webpages/Calender/Cal";
 import Customer from "./webpages/Customers/Customers";
 import Communityupd from "./webpages/community-updates/community-upd";
 import Foot from "./webpages/footer/foot";
+import Login from "./backend/login"; 
+import SignUp from "./backend/signup"; 
 import "./App.css";
-
 
 function App() {
   return (
-    <>
-      <Header />
-        <Hero />
-        <Client />
-        <Community />
-        <Unlock />
-        <Achieve />
-        <Cal />
-        <Customer />
-        <Communityupd />
-      <Foot />
-    </>
+    <Router>
+      <Routes>
+        {/* Home Page with Header and Footer */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Header />
+              <Hero />
+              <Client />
+              <Community />
+              <Unlock />
+              <Achieve />
+              <Cal />
+              <Customer />
+              <Communityupd />
+              <Foot />
+            </>
+          }
+        />
+
+        <Route path="/login" element={<Login />} />
+
+        <Route path="/signup" element={<SignUp />} />
+      </Routes>
+    </Router>
   );
 }
 

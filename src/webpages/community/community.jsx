@@ -5,13 +5,46 @@ import Logo3 from "../../assets/img/C-icon3.png";
 
 function Community() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+  const [backendData, setBackendData] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost/nexent_api/community.php");
+        const data = await response.json();
+        setBackendData(data);
+      } catch (error) {
+        console.error("Error fetching community data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 769);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
+  const communityData = {
+    boxes: [
+      {
+        logo: Logo1,
+        title: "Membership Organisations",
+        description: "Our membership management software provides full automation of membership renewals and payments",
+      },
+      {
+        logo: Logo2,
+        title: "National Associations",
+        description: "Our membership management software provides full automation of membership renewals and payments",
+      },
+      {
+        logo: Logo3,
+        title: "Clubs And Groups",
+        description: "Our membership management software provides full automation of membership renewals and payments",
+      },
+    ],
+  };
+  const logos = [Logo1, Logo2, Logo3];
   const styles = {
     Community: {
       display: "flex",
@@ -96,30 +129,21 @@ function Community() {
     <section style={styles.Community}>
       <div style={styles.container}>
         <div style={styles.top}>
-          <h1 style={styles.heading}>
-            Manage your entire community in a single system
-          </h1>
-          <p style={styles.paragraph}>Who is Nextcent suitable for?</p>
+          <h1 style={styles.heading}>{backendData?.heading}</h1>
+          <p style={styles.paragraph}>{backendData?.subhead}</p>
         </div>
         <div style={styles.bottom}>
-          {[Logo1, Logo2, Logo3].map((logo, i) => (
-            <div key={i} style={styles.containerbox}>
-              <img src={logo} alt={`Logo ${i + 1}`} style={styles.image} />
-              <h1 style={styles.boxheading}>
-                {
-                  [
-                    "Membership Organisations",
-                    "National Associations",
-                    "Clubs And Groups",
-                  ][i]
-                }
-              </h1>
-              <p style={styles.boxparagraph}>
-                Our membership management software provides full automation of
-                membership renewals and payments
-              </p>
-            </div>
-          ))}
+          {backendData?.items?.map((item, i) => {
+            const key = Object.keys(item)[0];      
+            const valueKey = Object.keys(item)[1]; 
+            return (
+              <div key={i} style={styles.containerbox}>
+                <img src={logos[i]} alt={item[key]} style={styles.image} />
+                <h1 style={styles.boxheading}>{item[key]}</h1>
+                <p style={styles.boxparagraph}>{item[valueKey]}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

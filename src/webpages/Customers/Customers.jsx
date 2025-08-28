@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import Unlockimage from "../../assets/img/T.jpg";
 import Logo1 from "../../assets/img/Logo.png";
 import Logo2 from "../../assets/img/Logo1.png";
@@ -9,12 +9,27 @@ import Logo6 from "../../assets/img/Logo5.png";
 
 function Customer() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+  const [backendData, setBackendData] = useState(null);
   
+  useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await fetch("http://localhost/nexent_api/customer.php");
+      const data = await response.json();
+      setBackendData(data);
+    } catch (error) {
+      console.error("Error fetching community update data:", error);
+    }
+  };
+  fetchData();
+}, []);
+
     useEffect(() => {
       const handleResize = () => setIsMobile(window.innerWidth < 769);
       window.addEventListener("resize", handleResize);
       return () => window.removeEventListener("resize", handleResize);
     }, []);
+    const logos = [Logo1, Logo2, Logo3, Logo4, Logo5, Logo6];
   const styles = {
     Customer: {
       display: "flex",
@@ -120,30 +135,18 @@ function Customer() {
         </div>
         <div style={styles.right}>
           <p style={styles.paragraph}>
-            Maecenas dignissim justo eget nulla rutrum molestie. Maecenas
-            lobortis sem dui, vel rutrum risus tincidunt ullamcorper. Proin eu
-            enim metus. Vivamus sed libero ornare, tristique quam in, gravida
-            enim. Nullam ut molestie arcu, at hendrerit elit. Morbi laoreet elit
-            at ligula molestie, nec molestie mi blandit. Suspendisse cursus
-            tellus sed augue ultrices, quis tristique nulla sodales. Suspendisse
-            eget lorem eu turpis vestibulum pretium. Suspendisse potenti.
-            Quisque malesuada enim sapien, vitae placerat ante feugiat eget.
-            Quisque vulputate odio neque, eget efficitur libero condimentum id.
-            Curabitur id nibh id sem dignissim finibus ac sit amet magna.
+            {backendData?.paragraph}
           </p>
           <div style={styles.botombox}>
-            <h5 style={styles.botomboxhead}>Tim Smith</h5>
+            <h5 style={styles.botomboxhead}>{backendData?.name}</h5>
             <p style={styles.botomboxpara}>
-              British Dragon Boat Racing Association
+              {backendData?.intro}
             </p>
           </div>
           <div style={styles.links}>
-            <img src={Logo1} alt="L1" style={styles.logoimage} />
-            <img src={Logo2} alt="L2" style={styles.logoimage} />
-            <img src={Logo3} alt="l3" style={styles.logoimage} />
-            <img src={Logo4} alt="L4" style={styles.logoimage} />
-            <img src={Logo5} alt="L5" style={styles.logoimage} />
-            <img src={Logo6} alt="L6" style={styles.logoimage} />
+             {logos.map((logo, index) => (
+              <img key={index} src={logo} alt={`Logo ${index + 1}`} style={styles.logoimage} />
+            ))}
             <a style={styles.button}>Meet all customers →</a>
           </div>
         </div>

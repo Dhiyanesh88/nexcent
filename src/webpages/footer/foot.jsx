@@ -13,6 +13,10 @@ export default function FooterSection() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+  const footerLinks = {
+    company: ["About us", "Blog", "Contact us", "Pricing", "Testimonials"],
+    support: ["Help center", "Terms of service", "Legal", "Privacy policy", "Status"]
+  };
 
 
   const styles = {
@@ -30,7 +34,7 @@ export default function FooterSection() {
       flexDirection: "column",
       alignItems: "center",
       width: "clamp(320px, 50%, 2560px)",
-      
+
     },
     heading: {
       fontSize: "clamp(29px, 3.5vw, 64px)",
@@ -75,7 +79,7 @@ export default function FooterSection() {
       flexDirection: "column",
       gap: "10px",
       color: "#ffffff",
-      flex: "1 1 auto", 
+      flex: "1 1 auto",
     },
     columncontainer: {
       display: "flex",
@@ -86,7 +90,7 @@ export default function FooterSection() {
     columncontainerlinks: {
       display: "flex",
       flexDirection: "row",
-      flexWrap: "wrap", 
+      flexWrap: "wrap",
       gap: "clamp(80px, 25vw, 120px)",
     },
     columnlinks: {
@@ -138,7 +142,7 @@ export default function FooterSection() {
       display: "flex",
       gap: "10px",
     },
-    
+
     LinklogoImage: {
       width: "35px",
       height: "35px",
@@ -177,25 +181,23 @@ export default function FooterSection() {
 
         <div style={styles.columncontainer}>
           <div style={styles.columncontainerlinks}>
+            {/* Company Links */}
             <div style={styles.column}>
               <h4 style={styles.abc}>Company</h4>
               <div style={styles.columnlinks}>
-                <a style={styles.ab}>About us</a>
-                <a style={styles.ab}>Blog</a>
-                <a style={styles.ab}>Contact us</a>
-                <a style={styles.ab}>Pricing</a>
-                <a style={styles.ab}>Testimonials</a>
+                {footerLinks.company.map((link, idx) => (
+                  <a key={idx} style={styles.ab}>{link}</a>
+                ))}
               </div>
             </div>
 
+            {/* Support Links */}
             <div style={styles.column}>
               <h4 style={styles.abc}>Support</h4>
               <div style={styles.columnlinks}>
-                <a style={styles.ab}>Help center</a>
-                <a style={styles.ab}>Terms of service</a>
-                <a style={styles.ab}>Legal</a>
-                <a style={styles.ab}>Privacy policy</a>
-                <a style={styles.ab}>Status</a>
+                {footerLinks.support.map((link, idx) => (
+                  <a key={idx} style={styles.ab}>{link}</a>
+                ))}
               </div>
             </div>
           </div>

@@ -3,6 +3,20 @@ import heroImage from "../../assets/img/illustration.png";
 
 function Hero() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+  const [backendData, setBackendData] = useState(null);
+
+  useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await fetch("http://localhost/nexent_api/hero.php");
+      const data = await response.json();
+      setBackendData(data);
+    } catch (error) {
+      console.error("Error fetching hero data:", error);
+    }
+  };
+  fetchData();
+}, []);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 769);
@@ -86,13 +100,13 @@ function Hero() {
       <div style={styles.container}>
         <div style={styles.left}>
           <h1 style={styles.heading}>
-            Lessons and insights{" "}
-            <span style={{ color: "#44c55bff" }}>from 8 years</span>
+            {backendData?.heading}{" "}
+            <span style={{ color: "#44c55bff" }}>{backendData?.highlight}</span>
           </h1>
           <p style={styles.paragraph}>
-            Where to grow your business as a photographer: site or social media?
+            {backendData?.paragraph}
           </p>
-          <button style={styles.button}>Register</button>
+          <button style={styles.button} onClick={() => window.location.href = "/signup"}>Register</button>
         </div>
         <div style={styles.right}>
           <img
