@@ -3,7 +3,20 @@ import Unlockimage from "../../assets/img/Unlock.jpg";
 
 function Unlock() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
-  
+  const [backendData, setBackendData] = useState(null);
+  useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await fetch("http://localhost/nexent_api/unlock.php");
+      const data = await response.json();
+      setBackendData(data);
+    } catch (error) {
+      console.error("Error fetching unlock data:", error);
+    }
+  };
+  fetchData();
+}, []);
+
     useEffect(() => {
       const handleResize = () => setIsMobile(window.innerWidth < 769);
       window.addEventListener("resize", handleResize);
@@ -94,15 +107,10 @@ function Unlock() {
         </div>
         <div style={styles.right}>
           <h1 style={styles.heading}>
-            The unseen of spending three years at Pixelgrade
+            {backendData?.heading}
           </h1>
           <p style={styles.paragraph}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit
-            amet justo ipsum. Sed accumsan quam vitae est varius fringilla.
-            Pellentesque placerat vestibulum lorem sed porta. Nullam mattis
-            tristique iaculis. Nullam pulvinar sit amet risus pretium auctor.
-            Etiam quis massa pulvinar, aliquam quam vitae, tempus sem. Donec
-            elementum pulvinar odio.
+            {backendData?.paragraph}
           </p>
           <button style={styles.button}>Learn More</button>
         </div>
