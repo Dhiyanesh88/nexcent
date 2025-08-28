@@ -9,7 +9,22 @@ import Logo7 from "../../assets/img/Logo6.png";
 
 function Client() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
-  
+  const [backendData, setBackendData] = useState(null);
+      
+     const fetchdata = async () => {
+        try {
+          const response = await fetch("http://localhost/nexent_api/client.php");
+          const data = await response.json();
+          setBackendData(data); // store data in state
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
+    
+      useEffect(() => {
+        fetchdata();
+      }, []);
+      
     useEffect(() => {
       const handleResize = () => setIsMobile(window.innerWidth < 769);
       window.addEventListener("resize", handleResize);
@@ -96,7 +111,7 @@ function Client() {
     <section style={styles.client}>
       <div style={styles.container}>
         <div style={styles.top}>
-          <h1 style={styles.heading}>Our Client</h1>
+          <h1 style={styles.heading}>Our Client </h1>
           <p style={styles.paragraph}>
             We have been working with some Fortune 500+ clients
           </p>

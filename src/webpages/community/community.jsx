@@ -12,8 +12,6 @@ function Community() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   const communityData = {
-  heading: "Manage your entire community in a single system",
-  subHeading: "Who is Nextcent suitable for?",
   boxes: [
     {
       logo: Logo1,
@@ -32,7 +30,7 @@ function Community() {
     },
   ],
 };
-
+  const logos = [Logo1, Logo2, Logo3];
   const styles = {
     Community: {
       display: "flex",
@@ -117,8 +115,8 @@ function Community() {
     <section style={styles.Community}>
       <div style={styles.container}>
         <div style={styles.top}>
-          <h1 style={styles.heading}>{communityData.heading}</h1>
-          <p style={styles.paragraph}>{communityData.subHeading}</p>
+          <h1 style={styles.heading}>Manage your entire community in a single system</h1>
+          <p style={styles.paragraph}>Who is Nextcent suitable for?</p>
         </div>
          <div style={styles.bottom}>
           {communityData.boxes.map((box, i) => (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import Logo1 from "../../assets/img/A-Icon1.png";
 import Logo2 from "../../assets/img/A-Icon2.png";
 import Logo3 from "../../assets/img/A-Icon3.png";
@@ -6,6 +6,21 @@ import Logo4 from "../../assets/img/A-Icon4.png";
 
 function Achieve() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 425);
+  const [backendData, setBackendData] = useState(null);
+
+  const fetchdata = async () => {
+    try {
+      const response = await fetch("http://localhost/nexent_api/achieve.php");
+      const data = await response.json();
+      setBackendData(data); // store data in state
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchdata();
+  }, []);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 425);
@@ -19,6 +34,8 @@ function Achieve() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+  const icons = [Logo1, Logo2, Logo3, Logo4];
+
   const achieveData = [
     {
       id: 1,
@@ -139,20 +156,20 @@ function Achieve() {
     <section style={styles.Achieve}>
       <div style={styles.container}>
         <div style={styles.left}>
-          <h1 style={styles.heading}>
-            Helping a local{" "}
+          <h1 style={styles.heading}>{backendData?.heading}
+            {" "}
             <span style={{ color: "rgba(76, 175, 79, 1)" }}>
-              business reinvent itself
+              {backendData?.highlight}
             </span>
           </h1>
           <p style={styles.paragraph}>
-            We reached here with our hard work and dedication
+            {backendData?.paragraph}
           </p>
         </div>
         <div style={styles.right}>
-          {achieveData.map((item) => (
-            <div key={item.id} style={styles.containerbox}>
-              <img src={item.img} alt={item.label} style={styles.image} />
+          {backendData?.items?.map((item, index) => (
+            <div key={index} style={styles.containerbox}>
+              <img src={achieveData[index].img} alt={item.label} style={styles.image} />
               <div style={styles.containerboxtext}>
                 <h1 style={styles.boxheading}>{item.count}</h1>
                 <p style={styles.boxparagraph}>{item.label}</p>

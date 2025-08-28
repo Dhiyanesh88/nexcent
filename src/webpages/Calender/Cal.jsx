@@ -3,7 +3,22 @@ import Unlockimage from "../../assets/img/Calender.png";
 
 function Cal() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
-
+  const [backendData, setBackendData] = useState(null);
+    
+   const fetchdata = async () => {
+      try {
+        const response = await fetch("http://localhost/nexent_api/calender.php");
+        const data = await response.json();
+        setBackendData(data); // store data in state
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+  
+    useEffect(() => {
+      fetchdata();
+    }, []);
+    
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 769);
     window.addEventListener("resize", handleResize);
@@ -95,18 +110,10 @@ function Cal() {
         </div>
         <div style={styles.right}>
           <h1 style={styles.heading}>
-            How to design your site footer like we did
+            {backendData?.heading}
           </h1>
           <p style={styles.paragraph}>
-            Donec a eros justo. Fusce egestas tristique ultrices. Nam tempor,
-            augue nec tincidunt molestie, massa nunc varius arcu, at scelerisque
-            elit erat a magna. Donec quis erat at libero ultrices mollis. In hac
-            habitasse platea dictumst. Vivamus vehicula leo dui, at porta nisi
-            facilisis finibus. In euismod augue vitae nisi ultricies, non
-            aliquet urna tincidunt. Integer in nisi eget nulla commodo faucibus
-            efficitur quis massa. Praesent felis est, finibus et nisi ac,
-            hendrerit venenatis libero. Donec consectetur faucibus ipsum id
-            gravida.
+            {backendData?.paragraph}
           </p>
           <button style={styles.button}>Learn More</button>
         </div>
