@@ -5,6 +5,20 @@ import IMG3 from "../../assets/img/UPD3.jpg";
 
 function Communityupd() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
+  const [backendData, setBackendData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost/nexent_api/comupd.php");
+        const data = await response.json();
+        setBackendData(data);
+      } catch (error) {
+        console.error("Error fetching community update data:", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 769);
@@ -15,7 +29,7 @@ function Communityupd() {
     {
       img: IMG1,
       text: "Creating Streamlined Safeguarding Processes with OneRen",
-      link: "#", // add the link for Read More
+      link: "#",
     },
     {
       img: IMG2,
@@ -123,26 +137,24 @@ function Communityupd() {
     <section style={styles.Community}>
       <div style={styles.container}>
         <div style={styles.top}>
-          <h1 style={styles.heading}>Caring is the new marketing</h1>
-          <p style={styles.paragraph}>
-            The Nexcent blog is the best place to read about the latest
-            membership insights, trends and more. See who's joining the
-            community, read about how our community are increasing their
-            membership income and lot's more.
-          </p>
+          <h1 style={styles.heading}>{backendData?.heading}</h1>
+          <p style={styles.paragraph}>{backendData?.paragraph}</p>
         </div>
         <div style={styles.botom}>
-          {data.map((item, i) => (
-            <div style={styles.containerbox} key={i}>
-              <img src={item.img} alt={`L${i + 1}`} style={styles.image} />
-              <div style={styles.floatbox}>
-                <p style={styles.boxparagraph}>{item.text}</p>
-                <a href={item.link} style={styles.button}>
-                  Read More →
-                </a>
+          {backendData?.items?.map((item, i) => {
+            const key = Object.keys(item)[0]; // e.g., "text_col1"
+            return (
+              <div style={styles.containerbox} key={i}>
+                <img src={[IMG1, IMG2, IMG3][i]} alt={`L${i + 1}`} style={styles.image} />
+                <div style={styles.floatbox}>
+                  <p style={styles.boxparagraph}>{item[key]}</p>
+                  <a href="#" style={styles.button}>
+                    Read More →
+                  </a>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
