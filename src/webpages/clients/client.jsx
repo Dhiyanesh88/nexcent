@@ -111,9 +111,9 @@ function Client() {
     <section style={styles.client}>
       <div style={styles.container}>
         <div style={styles.top}>
-          <h1 style={styles.heading}>Our Client </h1>
+          <h1 style={styles.heading}>{backendData?.heading}</h1>
           <p style={styles.paragraph}>
-            We have been working with some Fortune 500+ clients
+            {backendData?.paragraph}
           </p>
         </div>
         <div style={styles.botom}>
